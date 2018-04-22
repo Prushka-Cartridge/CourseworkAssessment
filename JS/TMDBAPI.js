@@ -119,7 +119,7 @@ function addResultTitles(jsondata){
           url += string[h]
         }
       }
-      var altTag = "poster for "+title;
+      var altTag = "posterfor"+title;
       console.log(altTag);
       var img = "<img src="+poster+" alt="+altTag+">";
 
