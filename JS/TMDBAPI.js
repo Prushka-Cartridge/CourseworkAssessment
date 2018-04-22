@@ -120,7 +120,7 @@ function addResultTitles(jsondata){
         }
       }
 
-      var img = "<img src="+poster+" alt=Poster for "+title+">";
+      var img = "<img src="+poster+" alt = <img src=/Images/placeholder.jpg alt=Poster for "+title+">>";
 
       var link = "MoviePage?q=" + url;
       var temp1 = "<div class = flex-item>"
