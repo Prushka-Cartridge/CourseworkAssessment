@@ -46,3 +46,8 @@
   /*font-size: 3em;*/
   text-align: center;
 }
+
+#title{
+  width: auto;
+  height: auto;
+}
