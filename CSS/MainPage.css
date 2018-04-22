@@ -257,6 +257,7 @@ html, body
 	position: absolute;
 	text-align: center;
 	width: 60%;
+  top: 3%;
 }
 
 .webdesigntuts-workshop:before {
