@@ -10,7 +10,12 @@
 }
 
 #searchResults{
+  float: left;
   width: 100%;
   height: auto;
   background-color: white;
+}
+
+.container {
+  display: flex; /* or inline-flex */
 }
