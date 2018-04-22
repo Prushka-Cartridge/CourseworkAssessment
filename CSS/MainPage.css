@@ -102,13 +102,13 @@ h3 {
 }
 */
 
-#searchbar {
+/* #searchbar {
   top:20%;
   left:41%;
   position:absolute;
   justify-content:center;
   text-align: left;
-}
+} */
 
 #bannerZone {
   width:100%;
@@ -152,16 +152,6 @@ h3 {
   margin:0; */
 }
 
-#searchform {
-  padding: 0 0 0 0;
-  margin:0;
-
-}
-
-#searchbox {
-  padding: 0 0 0 0;
-  /*margin:0; */
-}
 
 /* end ofelement manipulation */
 
