@@ -37,10 +37,10 @@
   background: tomato;
   padding: 5px;
   width: 200px;
-  height: 300px;
+  height: 200px;
   margin-top: 10px;
 
-  /*line-height: 150px;*/
+  line-height: 10px;
   color: white;
   font-weight: bold;
   /*font-size: 3em;*/
