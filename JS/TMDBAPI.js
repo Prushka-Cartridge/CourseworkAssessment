@@ -31,6 +31,8 @@ function Content(){
       addLowestContent(jsondata);
     });
   });
+
+  motd();
 }
 
 function addNewestContent(values){
