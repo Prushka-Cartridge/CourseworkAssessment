@@ -32,7 +32,7 @@ app.get('/MoviePage', function(req, res) {
  res.render('pages/MoviePage');
 });
 
-
+<?php
 app.post('/', function(req, res) {
   if(isset($_POST['form'])){
     if($_POST['form'] == "Login"){
@@ -41,10 +41,10 @@ app.post('/', function(req, res) {
             console.log('Saved')
             res.redirect('/')
           })
-        }else if($_POST['form'] == "SignUp"){
+    } else if ($_POST['form'] == "SignUp"){
           db.collection('UserInfo').find().toArray(function(err, result){
             if (err) throw err;
-            
+
             for(var i = 0; i < result.length; i++){
 
             }
@@ -55,6 +55,8 @@ app.post('/', function(req, res) {
         }
     }
 })
+
+?>
 /*
   db.collection('UserInfo').save(req.body, function(err, result) {
     if (err) throw err;
