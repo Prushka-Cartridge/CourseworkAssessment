@@ -32,31 +32,29 @@ app.get('/MoviePage', function(req, res) {
  res.render('pages/MoviePage');
 });
 
-<?php
+
 app.post('/', function(req, res) {
   if(isset($_POST['form'])){
     if($_POST['form'] == "Login"){
-          db.collection('UserInfo').save(req.body, function(err, result) {
-            if (err) throw err;
-            console.log('Saved')
-            res.redirect('/')
-          })
+      db.collection('UserInfo').save(req.body, function(err, result) {
+        if (err) throw err;
+        console.log('Saved')
+        res.redirect('/')
+      })
     } else if ($_POST['form'] == "SignUp"){
-          db.collection('UserInfo').find().toArray(function(err, result){
-            if (err) throw err;
+      db.collection('UserInfo').find().toArray(function(err, result){
+        if (err) throw err;
 
-            for(var i = 0; i < result.length; i++){
-
-            }
-            res.redirect('/')
-          })
-        } else {
-          console.log("What are you doing?");
-        }
+        res.redirect('/')
+      })
+    } else {
+        console.log("What are you doing?");
     }
+  }
 })
 
-?>
+
+
 /*
   db.collection('UserInfo').save(req.body, function(err, result) {
     if (err) throw err;
