@@ -89,10 +89,9 @@ h3 {
 
 #menubar {
   position:absolute;
-  top:15%;
-  text-align:center;
-  right: 46%;
-  width: 150px;
+  top:11%;
+  text-align:center;  
+  width: 60%;
   height:10%;
   margin:auto auto;
 }
