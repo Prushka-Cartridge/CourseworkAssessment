@@ -40,7 +40,7 @@ app.post('/', function(req, res) {
         console.log('Saved')
         res.redirect('/')
       })
-    } else if (($("#form").data("SignUp")){
+    } else if ($("#form").data("SignUp")){
       db.collection('UserInfo').find().toArray(function(err, result){
         if (err) throw err;
 
