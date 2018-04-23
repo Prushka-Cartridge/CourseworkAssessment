@@ -123,10 +123,10 @@ function addResultTitles(jsondata){
 
       console.log(altTag);
       var img = new Image();
+      img.onload = function(){};
       img.src = poster;
       img.alt = altTag
 
-      img.onload = function(){};
 
       var link = "MoviePage?q=" + url;
       var temp1 = "<div class = flex-item>"
