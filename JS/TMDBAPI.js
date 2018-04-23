@@ -16,15 +16,19 @@ function Content(){
     addNewestContent(jsondata);
   });
 
-  var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1000"
+  var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1"
   $.getJSON(urlLeast, function(jsondata){
-    var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page="+jsondata.total_pages
+    if(jsondata.total_pages <= 1000){
+      var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page="+jsondata.total_pages
+    } else {
+      var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1000"
+    }
     $.getJSON(urlLeast, function(jsondata){
       addLeastContent(jsondata);
     });
   });
 
-  var urlLowest = "https://api.themoviedb.org/3/movie/top_rated?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1000"
+  var urlLowest = "https://api.themoviedb.org/3/movie/top_rated?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1"
   $.getJSON(urlLowest, function(jsondata){
     var urlLowest = "https://api.themoviedb.org/3/movie/top_rated?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page="+jsondata.total_pages
     $.getJSON(urlLowest, function(jsondata){
@@ -40,7 +44,7 @@ function addNewestContent(values){
   var poster = "http://image.tmdb.org/t/p/w92" + values.poster_path;
   var title = values.title;
   var temp1 = "<div class = flex-item> <div class = poster> <img src="+poster+" alt="+title+"></div>"
-  var temp2 = "<div class = title> <h2>"+title+"</h2></div></div>"
+  var temp2 = "<div class = title> "+title+"</div></div>"
   var htmlstring = temp1 + temp2
   //console.log(htmlstring);
   $("#NewestAddition").append(htmlstring);
@@ -51,7 +55,7 @@ function addLeastContent(values){
   var poster = "http://image.tmdb.org/t/p/w92" + values.results[values.results.length-1].poster_path;
   var title = values.results[values.results.length-1].title;
   var temp1 = "<div class = flex-item> <div class = poster> <img src="+poster+" alt="+title+"></div>"
-  var temp2 = "<div class = title> <h2>"+title+"</h2></div></div>"
+  var temp2 = "<div class = title> "+title+"</div></div>"
   var htmlstring = temp1 + temp2
   //console.log(htmlstring);
   $("#LeastPopular").append(htmlstring);
@@ -62,7 +66,7 @@ function addLowestContent(values){
   var poster = "http://image.tmdb.org/t/p/w92" + values.results[values.results.length-1].poster_path;
   var title = values.results[values.results.length-1].title;
   var temp1 = "<div class = flex-item> <div class = poster> <img src="+poster+" alt="+title+"></div>"
-  var temp2 = "<div class = title> <h2>"+title+"</h2></div></div>"
+  var temp2 = "<div class = title> "+title+"</div></div>"
   var htmlstring = temp1 + temp2
   //console.log(htmlstring);
   $("#LowestRated").append(htmlstring);

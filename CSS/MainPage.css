@@ -402,7 +402,8 @@ html, body
 	width: 80px;
 } */
 
-
+@import "compass/css3";
+/*
 .flex-item {
   background: tomato;
   padding: 5px;
@@ -413,9 +414,11 @@ html, body
   line-height: 25px;
   color: white;
   font-weight: bold;
-  /*font-size: 3em;*/
+  /*font-size: 3em;*//*
   text-align: center;
 }
+*/
+
 
 .title{
   width: auto;
@@ -424,4 +427,5 @@ html, body
 
 .poster{
   height: 140px;
+  text-align: center;
 }
