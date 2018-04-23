@@ -89,15 +89,13 @@ h3 {
 
 #menubar {
   position:absolute;
-}
-/*
   top:11%;
   text-align:center;
   width: 60%;
   height:10%;
   margin:auto auto;
 }
-
+/*
 #menubar>nav>ul>li>a{
   color:#fff;
 }
