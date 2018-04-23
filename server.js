@@ -34,7 +34,7 @@ app.get('/MoviePage', function(req, res) {
 
 
 app.post('/', function(req, res) {
-  var
+  
   if($("#form").data("Login")){
       db.collection('UserInfo').save(req.body, function(err, result) {
         if (err) throw err;
