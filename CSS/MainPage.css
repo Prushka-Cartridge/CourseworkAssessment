@@ -104,7 +104,9 @@ h3 {
 
 /* #searchbar {
   top:20%;
-  left:41%;
+
+  max-width: 60%;
+  height: auto;
   position:absolute;
   justify-content:center;
   text-align: left;
