@@ -89,8 +89,9 @@ h3 {
 
 #menubar {
   position:absolute;
+  /*
   top:11%;
-  text-align:center;  
+  text-align:center;
   width: 60%;
   height:10%;
   margin:auto auto;
@@ -99,7 +100,7 @@ h3 {
 #menubar>nav>ul>li>a{
   color:#fff;
 }
-
+*/
 
 /* #searchbar {
   top:20%;
