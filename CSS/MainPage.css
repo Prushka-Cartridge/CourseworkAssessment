@@ -401,3 +401,27 @@ html, body
 	text-shadow: 0 -1px 0 #000;
 	width: 80px;
 } */
+
+
+.flex-item {
+  background: tomato;
+  padding: 5px;
+  width: 200px;
+  height: 200px;
+  margin-top: 10px;
+
+  line-height: 25px;
+  color: white;
+  font-weight: bold;
+  /*font-size: 3em;*/
+  text-align: center;
+}
+
+.title{
+  width: auto;
+  height: 100px;
+}
+
+.poster{
+  height: 140px;
+}
