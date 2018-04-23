@@ -18,7 +18,7 @@ function Content(){
 
   var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1"
   $.getJSON(urlLeast, function(jsondata){
-    if(json.data.total_pages <= 1000){
+    if(jsondata.total_pages <= 1000){
       var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page="+jsondata.total_pages
     } else {
       var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1000"
