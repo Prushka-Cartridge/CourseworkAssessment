@@ -121,7 +121,7 @@ function addResultTitles(jsondata){
       }
       var altTag = "posterfor"+title;
       console.log(altTag);
-      var img = "<img src="+poster+" alt="+altTag+">";
+      var img = "<img src="+poster+" alt="+"altTag"+">";
 
       var link = "MoviePage?q=" + url;
       var temp1 = "<div class = flex-item>"
