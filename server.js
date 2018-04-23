@@ -37,6 +37,7 @@ app.post('/', function(req, res) {
   <?php
   if(isset($_POST['form'])){
     if($_POST['form'] == "Login"){
+      ?>
       db.collection('UserInfo').save(req.body, function(err, result) {
         if (err) throw err;
         console.log('Saved')
@@ -52,7 +53,6 @@ app.post('/', function(req, res) {
         console.log("What are you doing?");
     }
   }
-  ?>
 })
 
 
