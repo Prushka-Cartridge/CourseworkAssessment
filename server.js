@@ -34,16 +34,13 @@ app.get('/MoviePage', function(req, res) {
 
 
 app.post('/', function(req, res) {
-  <?php
-  if(isset($_POST['form'])){
-    if($_POST['form'] == "Login"){
-      ?>
+  if($("#form").data("Login")){
       db.collection('UserInfo').save(req.body, function(err, result) {
         if (err) throw err;
         console.log('Saved')
         res.redirect('/')
       })
-    } else if ($_POST['form'] == "SignUp"){
+    } else if (($("#form").data("SignUp")){
       db.collection('UserInfo').find().toArray(function(err, result){
         if (err) throw err;
 
@@ -52,7 +49,7 @@ app.post('/', function(req, res) {
     } else {
         console.log("What are you doing?");
     }
-  }
+
 })
 
 
