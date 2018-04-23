@@ -126,6 +126,8 @@ function addResultTitles(jsondata){
       img.src = poster;
       img.alt = altTag
 
+      img.onload = function(){};
+
       var link = "MoviePage?q=" + url;
       var temp1 = "<div class = flex-item>"
       var temp2 = "<a href="+ link +">"
