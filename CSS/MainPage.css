@@ -86,7 +86,7 @@ h3 {
 
 /* element manipulation */
 
-/*
+
 #menubar {
   position:absolute;
   top:15%;
@@ -100,7 +100,7 @@ h3 {
 #menubar>nav>ul>li>a{
   color:#fff;
 }
-*/
+
 
 /* #searchbar {
   top:20%;
@@ -131,6 +131,8 @@ h3 {
   top:0%;
   position:absolute;
   text-align:center;
+  line-height: 50PX;
+
 }
 
 #leftbox {
