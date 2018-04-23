@@ -283,7 +283,7 @@ html, body
 	display: inline-block;
 	font-size: 0px;
 	margin: 150px auto 0;
-	padding: 20px;
+	/* padding: 20px; */
 	position: relative;
 	z-index: 1;
 }
