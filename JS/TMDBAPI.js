@@ -16,9 +16,13 @@ function Content(){
     addNewestContent(jsondata);
   });
 
-  var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1000"
+  var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1"
   $.getJSON(urlLeast, function(jsondata){
-    var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page="+jsondata.total_pages
+    if(json.data.total_pages <= 1000){
+      var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page="+jsondata.total_pages
+    } else {
+      var urlLeast = "https://api.themoviedb.org/3/movie/popular?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1000"
+    }
     $.getJSON(urlLeast, function(jsondata){
       addLeastContent(jsondata);
     });
@@ -26,12 +30,7 @@ function Content(){
 
   var urlLowest = "https://api.themoviedb.org/3/movie/top_rated?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1"
   $.getJSON(urlLowest, function(jsondata){
-    if(jsondata.total_pages <= 1000){
-      var urlLowest = "https://api.themoviedb.org/3/movie/top_rated?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page="+jsondata.total_pages
-    } else {
-      var urlLowest = "https://api.themoviedb.org/3/movie/top_rated?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1000"
-    }
-    var urlLowest = "https://api.themoviedb.org/3/movie/top_rated?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1000"
+    var urlLowest = "https://api.themoviedb.org/3/movie/top_rated?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page="+jsondata.total_pages
     $.getJSON(urlLowest, function(jsondata){
       addLowestContent(jsondata);
     });
