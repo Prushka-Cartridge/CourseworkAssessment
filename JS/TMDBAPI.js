@@ -44,7 +44,7 @@ function addNewestContent(values){
   var poster = "http://image.tmdb.org/t/p/w92" + values.poster_path;
   var title = values.title;
   var temp1 = "<div class = flex-item> <div class = poster> <img src="+poster+" alt="+title+"></div>"
-  var temp2 = "<div class = title> <h2>"+title+"</h2></div></div>"
+  var temp2 = "<div class = title> "+title+"</div></div>"
   var htmlstring = temp1 + temp2
   //console.log(htmlstring);
   $("#NewestAddition").append(htmlstring);
@@ -55,7 +55,7 @@ function addLeastContent(values){
   var poster = "http://image.tmdb.org/t/p/w92" + values.results[values.results.length-1].poster_path;
   var title = values.results[values.results.length-1].title;
   var temp1 = "<div class = flex-item> <div class = poster> <img src="+poster+" alt="+title+"></div>"
-  var temp2 = "<div class = title> <h2>"+title+"</h2></div></div>"
+  var temp2 = "<div class = title> "+title+"</div></div>"
   var htmlstring = temp1 + temp2
   //console.log(htmlstring);
   $("#LeastPopular").append(htmlstring);
@@ -66,7 +66,7 @@ function addLowestContent(values){
   var poster = "http://image.tmdb.org/t/p/w92" + values.results[values.results.length-1].poster_path;
   var title = values.results[values.results.length-1].title;
   var temp1 = "<div class = flex-item> <div class = poster> <img src="+poster+" alt="+title+"></div>"
-  var temp2 = "<div class = title> <h2>"+title+"</h2></div></div>"
+  var temp2 = "<div class = title> "+title+"</div></div>"
   var htmlstring = temp1 + temp2
   //console.log(htmlstring);
   $("#LowestRated").append(htmlstring);
