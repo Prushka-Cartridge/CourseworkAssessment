@@ -119,14 +119,8 @@ function addResultTitles(jsondata){
           url += string[h]
         }
       }
-      var altTag = "poster for "+title;
 
-      console.log(altTag);
-      var img = new Image();
-      img.onload = function(){};
-      img.src = poster;
-      img.alt = altTag
-
+      var img = "<img src="+poster+" alt=Poster>";
 
       var link = "MoviePage?q=" + url;
       var temp1 = "<div class = flex-item>"
