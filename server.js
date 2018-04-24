@@ -32,7 +32,7 @@ app.get('/MoviePage', function(req, res) {
  res.render('pages/MoviePage');
 });
 
-app.get('/tesing', function(req, res) {
+app.get('/testing', function(req, res) {
  res.render('pages/testing');
 });
 
