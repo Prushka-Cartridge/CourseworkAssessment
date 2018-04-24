@@ -33,24 +33,20 @@ app.get('/MoviePage', function(req, res) {
 });
 
 
-app.post('/', function(req, res) {
-  console.log($('#form'))
-  if($("#form").data("Login")){
-      db.collection('UserInfo').save(req.body, function(err, result) {
-        if (err) throw err;
-        console.log('Saved')
-        res.redirect('/')
-      })
-    } else if ($("#form").data("SignUp")){
-      db.collection('UserInfo').find().toArray(function(err, result){
-        if (err) throw err;
+app.post('/Login', function(req, res) {
+    db.collection('UserInfo').save(req.body, function(err, result) {
+      if (err) throw err;
+      console.log('Login')
+      res.redirect('/')
+    })
+})
 
-        res.redirect('/')
+app.post('/SignUp', function(req, res) {
+    db.collection('UserInfo').find().toArray(function(err, result){
+      if (err) throw err;
+      console.log('SignUp')
+      res.redirect('/')
       })
-    } else {
-        console.log("What are you doing?");
-    }
-
 })
 
 
