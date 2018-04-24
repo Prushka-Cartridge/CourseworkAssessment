@@ -41,7 +41,7 @@ app.post('/Login', function(req, res) {
     db.collection('UserInfo').find().toArray(function(err, result){
       if (err) throw err;
       console.log('Login')
-      res.redirect('/')
+      location.relaod();
       })
 })
 
