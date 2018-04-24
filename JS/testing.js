@@ -1,8 +1,11 @@
-var btn = document.querySelector('input');
-btn.addEventListener('click', deleteDatabseItems);
-console.log("no")
+function main(){
+  var btn = document.querySelector('input');
+  btn.addEventListener('click', deleteDatabaseItems);
+  console.log("no")
+}
 
-function deleteDatabseItems(){
+
+function deleteDatabaseItems(){
   console.log("yes")
   db.collection('UserInfo').drop(function(err, result){
     if (err) throw err;
