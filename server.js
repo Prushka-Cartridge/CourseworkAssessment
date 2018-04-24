@@ -32,6 +32,10 @@ app.get('/MoviePage', function(req, res) {
  res.render('pages/MoviePage');
 });
 
+app.get('/tesing', function(req, res) {
+ res.render('pages/tesing');
+});
+
 
 app.post('/Login', function(req, res) {
     db.collection('UserInfo').find().toArray(function(err, result){
