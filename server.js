@@ -33,7 +33,7 @@ app.get('/MoviePage', function(req, res) {
 });
 
 app.get('/tesing', function(req, res) {
- res.render('pages/tesing');
+ res.render('pages/testing');
 });
 
 
