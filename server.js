@@ -87,7 +87,6 @@ app.post('/Login', function(req, res) {
             return;
         }
     })
-    alert("That user does not exist")
 })
 
 app.post('/LogOut', function(req, res) {
