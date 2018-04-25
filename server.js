@@ -38,7 +38,7 @@ app.get('/testing', function(req, res) {
 
 
 app.post('/Login', function(req, res) {
-  console.log(location.href);
+  console.log(req.protocal);
     db.collection('UserInfo').find().toArray(function(err, result){
       if (err) throw err;
       console.log('Login')
