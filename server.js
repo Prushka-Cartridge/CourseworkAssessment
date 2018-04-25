@@ -41,7 +41,7 @@ app.post('/Login', function(req, res) {
     db.collection('UserInfo').find().toArray(function(err, result){
       if (err) throw err;
       console.log('Login')
-      res.redirect(document.URL;);
+      res.redirect(document.URL);
       })
 })
 
@@ -49,7 +49,7 @@ app.post('/SignUp', function(req, res) {
   db.collection('UserInfo').save(req.body, function(err, result) {
     if (err) throw err;
     console.log('SignUp')
-    res.redirect(document.URL;)
+    res.redirect(document.URL)
   })
 })
 
@@ -58,7 +58,7 @@ app.post('/testing', function(req, res) {
   db.collection('UserInfo').drop(function(err, result){
     if (err) throw err;
     console.log('test')
-    res.redirect(document.URL;)
+    res.redirect(document.URL)
   })
 })
 
