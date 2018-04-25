@@ -69,7 +69,7 @@ app.post('/Login', function(req, res) {
         for(var i = 0; i < result.length; i++){
             var username = req.query.username
             console.log(result.username)
-            console.log(req.query.username)
+            console.log(username)
             if(result.username == req.query.username && result.password == req.query.password){
                 console.log('Login')
                 req.session.loggedin = true;
