@@ -74,6 +74,7 @@ app.post('/Login', function(req, res) {
             }
         }
         console.log("Username isn't in the system");
+        res.redirect("/");
     })
 })
 
