@@ -15,65 +15,74 @@ app.set('view engine', 'ejs');
 var db;
 
 MongoClient.connect(url, function(err, database) {
-  if (err) throw err;
-  db = database;
-  console.log('listening on 8080');
+    if (err) throw err;
+    db = database;
+    console.log('listening on 8080');
 });
 
 app.get('/', function(req, res) {
- res.render('pages/MainPage');
+    if(req.session.loggedin){
+        console.log("logged in");
+        res.render('pages/MainPage');
+        return;
+    } else {
+        console.log("logged out");
+        res.render('pages/MainPage');
+    }
+
+
 });
 
 app.get('/SearchPage', function(req, res) {
- res.render('pages/SearchPage');
+    res.render('pages/SearchPage');
 });
 
 app.get('/MoviePage', function(req, res) {
- res.render('pages/MoviePage');
+    res.render('pages/MoviePage');
 });
 
 app.get('/testing', function(req, res) {
- res.render('pages/testing');
+    res.render('pages/testing');
 });
 
 
 app.post('/Login', function(req, res) {
     db.collection('UserInfo').find().toArray(function(err, result){
-      if (err) throw err;
-      console.log('Login')
-      res.redirect("/");
-      })
+        if (err) throw err;
+        console.log('Login')
+        res.redirect("/");
+    })
 })
 
 app.post('/SignUp', function(req, res) {
-  db.collection('UserInfo').save(req.body, function(err, result) {
-    if (err) throw err;
-    console.log('SignUp')
-    res.redirect("/")
-  })
+    db.collection('UserInfo').save(req.body, function(err, result) {
+        if (err) throw err;
+        console.log('SignUp')
+        res.redirect("/")
+    })
 })
 
 app.post('/testing', function(req, res) {
-  db.collection('UserInfo').drop(function(err, result){
-    if (err) throw err;
-    console.log('test')
-    res.redirect("/")
-  })
+    db.collection('UserInfo').drop(function(err, result){
+        if (err) throw err;
+        console.log('test')
+        res.redirect("/")
+    })
 })
 
 /*
-  db.collection('UserInfo').save(req.body, function(err, result) {
-    if (err) throw err;
-    console.log('Saved')
-    res.redirect('/')
-  })
+db.collection('UserInfo').save(req.body, function(err, result) {
+if (err) throw err;
+console.log('Saved')
+res.redirect('/')
+})
 });
 
 app.post('/', function(req, res) {
-  db.collection('UserInfo').find(req.body).toArray(function(err, result) {
-    if (err) throw err;
-    console.log(req.body.username);
-  })
+db.collection('UserInfo').find(req.body).toArray(function(err, result) {
+if (err) throw err;
+console.log(req.body.username);
+})
 });
 */
 app.use(express.static('public'))
