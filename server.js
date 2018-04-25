@@ -68,7 +68,7 @@ app.post('/Login', function(req, res) {
         if (err) throw err;
         for(var i = 0; i < result.length; i++){
             var username = req.body.username
-            console.log(result.username)
+            console.log(result.UserInfo.username)
             //console.log(username)
             if(result.username == req.body.username && result.password == req.body.password){
                 console.log('Login')
