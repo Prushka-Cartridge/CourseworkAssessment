@@ -81,13 +81,13 @@ app.post('/Login', function(req, res) {
             console.log("Username is in the system");
             return;
         } else {
-            alert("Incorrect Password")
+            window.alert("Incorrect Password")
             console.log("Username isn't in the system");
             res.redirect("/");
             return;
         }
     })
-    alert("That user does not exist")
+    window.alert("That user does not exist")
 })
 
 app.post('/LogOut', function(req, res) {
