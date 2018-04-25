@@ -88,6 +88,12 @@ app.post('/Login', function(req, res) {
     })
 })
 
+app.post('/LogOut', function(req, res) {
+    req.session.loggedin = false;
+    req.session.destroy();
+    res.redirect('/');
+})
+
 app.post('/SignUp', function(req, res) {
     var datatostore = {
     //"gender":req.body.gender,
