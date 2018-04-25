@@ -21,7 +21,7 @@ MongoClient.connect(url, function(err, database) {
 });
 
 app.get('/', function(req, res) {
-    if(!req.session.loggedin){
+    if(!req.session.loggedIn){
         console.log("logged in");
         res.render('pages/MainPage');
         return;
