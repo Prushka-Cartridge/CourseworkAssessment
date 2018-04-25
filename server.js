@@ -66,9 +66,14 @@ app.get('/testing', function(req, res) {
 app.post('/Login', function(req, res) {
     db.collection('UserInfo').find().toArray(function(err, result){
         if (err) throw err;
-        console.log('Login')
-        req.session.loggedin = true;
-        res.redirect("/");
+        for(int i = 0; i < result.length; i++){
+            if(result.username == req.body.username && result.password == req.body.password){
+                console.log('Login')
+                req.session.loggedin = true;
+                res.redirect("/");
+            }
+        }
+        console.log("Username isn't in the system");
     })
 })
 
