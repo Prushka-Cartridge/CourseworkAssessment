@@ -67,10 +67,12 @@ app.post('/Login', function(req, res) {
     db.collection('UserInfo').find().toArray(function(err, result){
         if (err) throw err;
         for(var i = 0; i < result.length; i++){
-            var username = req.body.username
-            console.log("Password"+result.password)
-            console.log("Username"+username)
-            if(result.username == req.body.username && result.password == req.body.password){
+            var username = req.body.username;
+            var password = req.body.password;
+
+            console.log("Password:"+result.login.password)
+            console.log("Username:"+username)
+            if(result.login.username == req.body.username && result.login.password == req.body.password){
                 console.log('Login')
                 req.session.loggedin = true;
                 res.redirect("/");
@@ -85,7 +87,18 @@ app.post('/Login', function(req, res) {
 })
 
 app.post('/SignUp', function(req, res) {
-    db.collection('UserInfo').save(req.body, function(err, result) {
+    var datatostore = {
+    //"gender":req.body.gender,
+    "name":{"firstname":req.body.firstname,"surname":req.body.surname},
+    //"location":{"street":req.body.street,"city":req.body.city,"state":req.body.state,"postcode":req.body.postcode},
+    //"email":req.body.email,
+    "login":{"username":req.body.username,"password":req.body.password},
+    //"dob":req.body.dob,"registered":Date(),
+    //"picture":{"large":req.body.large,"medium":req.body.medium,"thumbnail":req.body.thumbnail},
+    //"nat":req.body.nat
+    }
+
+    db.collection('UserInfo').save(datatostore, function(err, result) {
         if (err) throw err;
         console.log('SignUp')
         res.redirect("/")
