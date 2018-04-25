@@ -24,7 +24,7 @@ MongoClient.connect(url, function(err, database) {
 app.get('/', function(req, res) {
     if(req.session.loggedin){
         console.log("logged in");
-        res.render('pages/MainPage');
+        res.render('pages/MainPageLoggedIn');
         return;
     } else {
         console.log("logged out");
@@ -36,7 +36,7 @@ app.get('/', function(req, res) {
 app.get('/SearchPage', function(req, res) {
     if(req.session.loggedin){
         console.log("logged in");
-        res.render('pages/SearchPage');
+        res.render('pages/SearchPageLoggedIn');
         return;
     } else {
         console.log("logged out");
@@ -48,7 +48,7 @@ app.get('/SearchPage', function(req, res) {
 app.get('/MoviePage', function(req, res) {
     if(req.session.loggedin){
         console.log("logged in");
-        res.render('pages/MoviePage');
+        res.render('pages/MoviePageLoggedIn');
         return;
     } else {
         console.log("logged out");
