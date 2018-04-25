@@ -38,7 +38,6 @@ app.get('/testing', function(req, res) {
 
 
 app.post('/Login', function(req, res) {
-  console.log(app.urlencoded.type);
     db.collection('UserInfo').find().toArray(function(err, result){
       if (err) throw err;
       console.log('Login')
@@ -50,16 +49,15 @@ app.post('/SignUp', function(req, res) {
   db.collection('UserInfo').save(req.body, function(err, result) {
     if (err) throw err;
     console.log('SignUp')
-    res.redirect(req.protocal)
+    res.redirect("/")
   })
 })
 
 app.post('/testing', function(req, res) {
-  console.log("yes")
   db.collection('UserInfo').drop(function(err, result){
     if (err) throw err;
     console.log('test')
-    res.redirect(req.protocal)
+    res.redirect("/")
   })
 })
 
