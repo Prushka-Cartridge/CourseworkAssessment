@@ -67,7 +67,9 @@ app.post('/Login', function(req, res) {
     db.collection('UserInfo').find().toArray(function(err, result){
         if (err) throw err;
         for(var i = 0; i < result.length; i++){
-            if(result.username == req.body.username && result.password == req.body.password){
+            console.log(result.username)
+            console.log(req.query.username)
+            if(result.username == req.query.username && result.password == req.query.password){
                 console.log('Login')
                 req.session.loggedin = true;
                 res.redirect("/");
