@@ -64,25 +64,27 @@ app.get('/testing', function(req, res) {
 
 
 app.post('/Login', function(req, res) {
-    db.collection('UserInfo').find().toArray(function(err, result){
+    var username = req.body.username;
+    var password = req.body.password;
+    db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         if (err) throw err;
-        for(var i = 0; i < result.length; i++){
-            var username = req.body.username;
-            var password = req.body.password;
 
-            console.log("Password:"+result.login.password)
-            console.log("Username:"+username)
-            if(result.login.username == req.body.username && result.login.password == req.body.password){
-                console.log('Login')
-                req.session.loggedin = true;
-                res.redirect("/");
-                console.log("Username is in the system");
-                return;
-            }
+        if(!result){
+            res.redirect('/');
+            return
         }
-        console.log("Username isn't in the system");
-        res.redirect("/");
-        return;
+
+        if(result.login.password == password){
+            console.log('Login')
+            req.session.loggedin = true;
+            res.redirect("/");
+            console.log("Username is in the system");
+            return;
+        } else {
+            console.log("Username isn't in the system");
+            res.redirect("/");
+            return;
+        }
     })
 })
 
@@ -92,7 +94,7 @@ app.post('/SignUp', function(req, res) {
     "name":{"firstname":req.body.firstname,"surname":req.body.surname},
     //"location":{"street":req.body.street,"city":req.body.city,"state":req.body.state,"postcode":req.body.postcode},
     //"email":req.body.email,
-    "login":{"username":req.body.username,"password":req.body.password}
+    "login":{"username":req.body.username,"password":req.body.password},
     //"dob":req.body.dob,"registered":Date(),
     //"picture":{"large":req.body.large,"medium":req.body.medium,"thumbnail":req.body.thumbnail},
     //"nat":req.body.nat
