@@ -38,11 +38,11 @@ app.get('/testing', function(req, res) {
 
 
 app.post('/Login', function(req, res) {
-  console.log(global.document.URL);
+  console.log(global.document.location);
     db.collection('UserInfo').find().toArray(function(err, result){
       if (err) throw err;
       console.log('Login')
-      res.redirect(global.document.URL);
+      res.redirect(global.document.location);
       })
 })
 
@@ -50,7 +50,7 @@ app.post('/SignUp', function(req, res) {
   db.collection('UserInfo').save(req.body, function(err, result) {
     if (err) throw err;
     console.log('SignUp')
-    res.redirect(global.document.URL)
+    res.redirect(global.document.location)
   })
 })
 
@@ -59,7 +59,7 @@ app.post('/testing', function(req, res) {
   db.collection('UserInfo').drop(function(err, result){
     if (err) throw err;
     console.log('test')
-    res.redirect(global.document.URL)
+    res.redirect(global.document.location)
   })
 })
 
