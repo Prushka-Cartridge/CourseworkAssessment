@@ -6,6 +6,7 @@ const session = require('express-session'); //npm install express-session
 const bodyParser = require('body-parser');
 var app = express();
 
+app.use(session({ secret: 'example' }));
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser());
 app.set('view engine', 'ejs');
@@ -21,7 +22,6 @@ MongoClient.connect(url, function(err, database) {
 });
 
 app.get('/', function(req, res) {
-    req.session.loggedin = false;
     console.log(req.session.loggedin)
     if(!req.session.loggedin){
         console.log("logged in");
