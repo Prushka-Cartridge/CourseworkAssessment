@@ -22,26 +22,41 @@ MongoClient.connect(url, function(err, database) {
 });
 
 app.get('/', function(req, res) {
-    console.log(req.session.loggedin)
-    if(!req.session.loggedin){
+    if(req.session.loggedin){
         console.log("logged in");
         res.render('pages/MainPage');
         return;
     } else {
         console.log("logged out");
         res.render('pages/MainPage');
+        return;
     }
-
-
 });
 
 app.get('/SearchPage', function(req, res) {
-    res.render('pages/SearchPage');
+    if(req.session.loggedin){
+        console.log("logged in");
+        res.render('pages/SearchPage');
+        return;
+    } else {
+        console.log("logged out");
+        res.render('pages/SearchPage');
+        return;
+    }
 });
 
 app.get('/MoviePage', function(req, res) {
-    res.render('pages/MoviePage');
+    if(req.session.loggedin){
+        console.log("logged in");
+        res.render('pages/MoviePage');
+        return;
+    } else {
+        console.log("logged out");
+        res.render('pages/MoviePage');
+        return;
+    }
 });
+
 
 app.get('/testing', function(req, res) {
     res.render('pages/testing');
