@@ -73,10 +73,13 @@ app.post('/Login', function(req, res) {
                 console.log('Login')
                 req.session.loggedin = true;
                 res.redirect("/");
+                console.log("Username is in the system");
+                return;
             }
         }
         console.log("Username isn't in the system");
         res.redirect("/");
+        return;
     })
 })
 
