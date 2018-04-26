@@ -83,9 +83,8 @@ app.get('/MoviePage', function(req, res) {
     }
     movieTitle = value;
     //console.log("Movie Title"+movieTitle)
-    var array;
     db.collection('MovieInfo').find({"MovieInfo.title":movieTitle}).toArray(function(err, results) {
-        array = [results.length]
+        var array = [results.length]
         if (err) throw err;
         console.log(results)
         if(results.length == 0){
@@ -99,22 +98,17 @@ app.get('/MoviePage', function(req, res) {
             }
         }
         //console.log("Does this actually work "+output);
-    })
-    var e = "yes"
-    array.forEach(function(a){
-        e += a
-    })
-    console.log(e)
 
-    if(req.session.loggedin){
-        db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-        res.render('pages/MoviePageLoggedIn', {user: result, array: array});
-        })
-    } else {
-        //console.log("logged out");
-        res.render('pages/MoviePage', {array: array});
-    }
-    return;
+        if(req.session.loggedin){
+            db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
+            res.render('pages/MoviePageLoggedIn', {user: result, array: array});
+            })
+        } else {
+            //console.log("logged out");
+            res.render('pages/MoviePage', {array: array});
+        }
+        return;
+    })    
 });
 
 app.get('/testing', function(req, res) {
