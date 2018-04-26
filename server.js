@@ -62,6 +62,7 @@ app.get('/MoviePage', function(req, res) {
         res.render('pages/MoviePage');
         return;
     }
+    console.log(req.body);
     var output = "";
 
     db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, results) {
