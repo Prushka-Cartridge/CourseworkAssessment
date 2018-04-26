@@ -51,6 +51,15 @@ app.get('/SearchPage', function(req, res) {
 });
 
 app.get('/MoviePage', function(req, res) {
+    if(req.session.loggedin){
+        db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
+            console.log("logged in");
+            res.render('pages/MoviePageLoggedIn', {user: result});
+        })
+    } else {
+        console.log("logged out");
+        res.render('pages/MoviePage');
+    }
     var output = "";
     db.collection('MovieInfo').find(req.body.title).toArray(function(err, result) {
         if (err) throw err;
@@ -65,19 +74,7 @@ app.get('/MoviePage', function(req, res) {
         }
 
     })
-    if(req.session.loggedin){
-        db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-        console.log("logged in");
-        res.render('pages/MoviePageLoggedIn', {user: result});
-        res.send(output)
-        return;
-    })
-    } else {
-        console.log("logged out");
-        res.render('pages/MoviePage');
-        res.send(output)
-        return;
-    }
+    res.send(output);
 });
 
 
