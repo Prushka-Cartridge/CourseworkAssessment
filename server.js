@@ -95,8 +95,9 @@ app.get('/MoviePage', function(req, res) {
                 output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
             }
         }
+        console.log(output);
     })
-    console.log(output);
+    return;
 });
 
 app.get('/testing', function(req, res) {
