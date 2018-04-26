@@ -1,5 +1,5 @@
 var express = require('express');
-const ejsLint = require('ejs-lint');
+
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/MovieReviews";
 const session = require('express-session'); //npm install express-session
@@ -98,7 +98,6 @@ app.get('/MoviePage', function(req, res) {
             }
         }
         let ejs = require('ejs');
-        console.log(ejslint('<%= array.join(); %>', {array: array}))
         html = ejs.render('<%= array.join(); %>', {array: array});
         //console.log("Does this actually work "+output);
     })
