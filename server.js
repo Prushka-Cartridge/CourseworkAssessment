@@ -25,12 +25,12 @@ MongoClient.connect(url, function(err, database) {
 app.get('/', function(req, res) {
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-            console.log("logged in");
+            //console.log("logged in");
             res.render('pages/MainPageLoggedIn', {user: result});
             return;
         })
     } else {
-        console.log("logged out");
+        //console.log("logged out");
         res.render('pages/MainPage');
         return;
     }
@@ -40,25 +40,25 @@ app.get('/SearchPage', function(req, res) {
     console.log(req.body)
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-        console.log("logged in");
+        //console.log("logged in");
         res.render('pages/SearchPageLoggedIn', {user: result});
         return;
     })
     } else {
-        console.log("logged out");
+        //console.log("logged out");
         res.render('pages/SearchPage');
         return;
     }
 });
 
 app.get('/MoviePage', function(req, res) {
-    console.log("Come on"+req.body)
+    console.log(req.body)
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-            res.render('pages/MoviePageLoggedIn', {user: result});
+        res.render('pages/MoviePageLoggedIn', {user: result});
         })
     } else {
-        console.log("logged out");
+        //console.log("logged out");
         res.render('pages/MoviePage');
     }
 
@@ -97,7 +97,7 @@ app.post('/Login', function(req, res) {
         }
 
         if(result.login.password == password){
-            console.log('Login')
+            //console.log('Login')
             req.session.loggedin = true;
             res.redirect("/");
             console.log("Username is in the system");
@@ -131,7 +131,7 @@ app.post('/SignUp', function(req, res) {
 
     db.collection('UserInfo').save(datatostore, function(err, result) {
         if (err) throw err;
-        console.log('SignUp')
+        //console.log('SignUp')
         res.redirect("/")
     })
 })
@@ -139,7 +139,7 @@ app.post('/SignUp', function(req, res) {
 app.post('/testing', function(req, res) {
     db.collection('UserInfo').drop(function(err, result){
         if (err) throw err;
-        console.log('test')
+        //console.log('test')
         res.redirect("/")
     })
 })
@@ -163,7 +163,7 @@ app.post('/addMovie', function(req, res) {
 
     db.collection('MovieInfo').save(datatostore, function(err, result) {
         if (err) throw err;
-        console.log('SignUp')
+        //console.log('SignUp')
         res.redirect("/");
         return;
     })
