@@ -161,6 +161,7 @@ app.post('/addMovie', function(req, res) {
         if (err) throw err;
         console.log('SignUp')
         res.redirect("/");
+        return;
     })
 
 })
