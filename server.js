@@ -62,24 +62,22 @@ app.get('/MoviePage', function(req, res) {
         res.render('pages/MoviePage');
         return;
     }
-    function(request, resSomething){
-        var output = "";
+    var output = "";
 
-        db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, results) {
-            if (err) throw err;
-            console.log(results)
-            console.log(req.body.title);
-            if(!results){
-                output += "No reviews exist for this movie";
-            } else {
-                for(var i = 0; i < results.length; i++){
-                    output += "<div> <div>Created By:"+results[i].login.username+"</div>";
-                    output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
-                }
+    db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, results) {
+        if (err) throw err;
+        console.log(results)
+        console.log(req.body.title);
+        if(!results){
+            output += "No reviews exist for this movie";
+        } else {
+            for(var i = 0; i < results.length; i++){
+                output += "<div> <div>Created By:"+results[i].login.username+"</div>";
+                output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
             }
-        })
-        console.log(output);
-    }
+        }
+    })
+    console.log(output);
 });
 
 app.get('/testing', function(req, res) {
