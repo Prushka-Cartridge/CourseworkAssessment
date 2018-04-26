@@ -66,7 +66,7 @@ app.get('/MoviePage', function(req, res) {
 
 
 });
-
+/*
 app.post('/MoviePage', function(req,res){
     var output = "";
 
@@ -85,7 +85,7 @@ app.post('/MoviePage', function(req,res){
     })
     console.log(output);
 })
-
+*/
 app.get('/testing', function(req, res) {
     res.render('pages/testing');
 });
