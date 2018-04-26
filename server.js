@@ -69,13 +69,13 @@ app.get('/MoviePage', function(req, res) {
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         console.log("logged in");
         res.render('pages/MoviePageLoggedIn', {user: result});
-        $("#movieReviews").append(output);
+        res.send(output)
         return;
     })
     } else {
         console.log("logged out");
         res.render('pages/MoviePage');
-        $("#movieReviews").append(output);
+        res.send(output)
         return;
     }
 });
