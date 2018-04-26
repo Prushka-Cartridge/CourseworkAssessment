@@ -63,7 +63,7 @@ app.get('/MoviePage', function(req, res) {
     }
 
     var output = "";
-    console.log(req.originalUrl);
+    //console.log(req.originalUrl);
 
     var searchString = req.originalUrl
     searchString = searchString.substring(1);
@@ -79,7 +79,7 @@ app.get('/MoviePage', function(req, res) {
     for(i = 0; i < string.length; i++){
       value += string[i] + " ";
     }
-    
+
     db.collection('MovieInfo').find({title:value}).toArray(function(err, results) {
         if (err) throw err;
         //console.log(results)
@@ -161,18 +161,34 @@ app.post('/testing', function(req, res) {
 })
 
 app.post('/addMovie', function(req, res) {
+
+    var searchString = req.originalUrl
+    searchString = searchString.substring(1);
+    var nvPairs = searchString.split("&");
+
+  	for (i = 0; i < nvPairs.length; i++) {
+  	   var nvPair = nvPairs[i].split("=");
+  	   var name = nvPair[0];
+  	   var value = nvPair[1];
+    }
+    var string = value.split("+");
+    value = "";
+    for(i = 0; i < string.length; i++){
+      value += string[i] + " ";
+    }
+
     var datatostore;
     console.log(req.body);
     if(!username){
         datatostore = {
         "login":{"username":"Guest"},
-        "MovieInfo":{"title":req.body.title},
+        "MovieInfo":{"title":value},
         "MovieReview":{"review":req.body.movieReview},
         }
     } else {
         datatostore = {
         "login":{"username":username},
-        "MovieInfo":{"title":req.body.movieTitle},
+        "MovieInfo":{"title":value},
         "MovieReview":{"review":req.body.movieReview},
         }
     }
