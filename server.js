@@ -94,11 +94,13 @@ app.get('/MoviePage', function(req, res) {
             for(var i = 0; i < results.length; i++){
                 // output += "<div> <div>Created By:"+results[i].login.username+"</div>";
                 // output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
-                array[i] = {info:"<div> <div>Created By:"+results[i].login.username+"</div><div> Review:"+results[i].MovieReview.review+"</div> </div>"}
+                var yes = "<div> <div>Created By:"+results[i].login.username+"</div><div> Review:"+results[i].MovieReview.review+"</div> </div>"
+                array[i] = {info: yes}
             }
         }
         //console.log("Does this actually work "+output);
     })
+    console.log(array)
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         res.render('pages/MoviePageLoggedIn', {user: result, array: array});
