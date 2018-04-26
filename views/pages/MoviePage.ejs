@@ -1,27 +1,40 @@
 <html>
 
-  <head>
+<head>
     <% include ../partials/head %>
     <title>Movie Page</title>
     <script type="text/javascript" src="/JS/Login.js"></script>
 
-  </head>
-  <header>
+</head>
+<header>
     <% include ../partials/header %>
-  </header>
+</header>
 
-  <body onload="yes()">
+<body onload="yes()">
 
     <main>
-      <div id = "searchResults">
 
-      </div>
+        <div id = "searchResults">
+
+        </div>
+
+        <div id = "createReview" method="post" action="/addMovie">
+            <h2>Create Review</h2>
+            <form>
+                <textarea name="movieReview" rows="8" cols="80"></textarea>
+            </form>
+        </div>
+
+        <div id = "movieReviews">
+
+        </div>
+
     </main>
 
     <footer>
-      <% include ../partials/footer %>
+        <% include ../partials/footer %>
     </footer>
 
-  </body>
+</body>
 
 </html>

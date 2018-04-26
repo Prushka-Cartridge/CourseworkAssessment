@@ -129,21 +129,21 @@ app.post('/testing', function(req, res) {
     })
 })
 
-/*
-db.collection('UserInfo').save(req.body, function(err, result) {
-if (err) throw err;
-console.log('Saved')
-res.redirect('/')
-})
-});
+app.post('/addMovie', function(req, res) {
+    var datatostore = {
+    "login":{"username":username},
+    "MovieInfo":{"title":req.body.movieTitle},
+    "MovieReview":{"review":req.body.movieReview},
+    }
 
-app.post('/', function(req, res) {
-db.collection('UserInfo').find(req.body).toArray(function(err, result) {
-if (err) throw err;
-console.log(req.body.username);
+    db.collection('MovieInfo').save(datatostore, function(err, result) {
+        if (err) throw err;
+        console.log('SignUp')
+        res.redirect("/")
+    })
 })
-});
-*/
+
+
 app.use(express.static('public'))
 app.use(express.static(__dirname + '/views'));
 

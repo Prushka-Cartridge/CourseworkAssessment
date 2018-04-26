@@ -191,9 +191,8 @@ function addResult(jsondata){
     console.log(htmlstring);
     //htmlstring = "<div class = oneMovie> <div class = image>" +  img + "</div> <div class = title> Title:" + title + "  </div> <div class = year>Release Year:" + year + "</div></div>";
     $("#searchResults").append(htmlstring);
-
-
   }
+  
 }
 
 // Get the modal
