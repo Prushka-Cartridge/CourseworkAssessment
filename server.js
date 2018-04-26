@@ -67,7 +67,7 @@ app.get('/MoviePage', function(req, res) {
         if(!result){
             output += "No reviews exist for this movie";
         } else {
-            for(var i = 0; i < result.length; i++){
+            for(var i = 0; i < results.length; i++){
                 output += "<div> <div>Created By:"+results.login.username+"</div>";
                 output += "<div> Review:"+results.MovieReview.review+"</div> </div>"
             }
