@@ -93,8 +93,8 @@ app.get('/MoviePage', function(req, res) {
             for(var i = 0; i < results.length; i++){
                 // output += "<div> <div>Created By:"+results[i].login.username+"</div>";
                 // output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
-                var yes = "Created By:"+results[i].login.username
-                var no = "Review:"results[i].MovieReview.review
+                var yes = "Created By:"+results[i].login.username+"/n"
+                var no = "Review:"+results[i].MovieReview.review+"/n/n"
                 array[i] = {Username: yes, Review: no}
                 console.log(array[i]);
             }
