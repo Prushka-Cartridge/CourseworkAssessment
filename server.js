@@ -98,7 +98,7 @@ app.get('/MoviePage', function(req, res) {
             }
         }
         let ejs = require('ejs');
-        html = ejs.render('<%= array.join("") %>', {array: array});
+        html = ejs.render('<%= array.join(); %>', {array: array});
         //console.log("Does this actually work "+output);
     })
     return;
