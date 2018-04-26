@@ -1,5 +1,5 @@
 var express = require('express');
-var test = require('./JS/test');
+var test = require('/JS/test');
 
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/MovieReviews";
