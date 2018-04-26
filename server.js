@@ -146,6 +146,7 @@ app.post('/testing', function(req, res) {
 
 app.post('/addMovie', function(req, res) {
     var datatostore;
+    console.log(req.body);
     if(!username){
         datatostore = {
         "login":{"username":"Guest"},
