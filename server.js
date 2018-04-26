@@ -84,7 +84,7 @@ app.get('/MoviePage', function(req, res) {
     movieTitle = value;
     //console.log("Movie Title"+movieTitle)
     db.collection('MovieInfo').find({"MovieInfo.title":movieTitle}).toArray(function(err, results) {
-        var array = [results.length]
+        var array = [2][results.length]
         if (err) throw err;
         console.log(results)
         if(results.length == 0){
@@ -93,8 +93,10 @@ app.get('/MoviePage', function(req, res) {
             for(var i = 0; i < results.length; i++){
                 // output += "<div> <div>Created By:"+results[i].login.username+"</div>";
                 // output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
-                var yes = "Username: Created By:"+results[i].login.username, "Review:"+results[i].MovieReview.review
-                array[i] = {info: yes}
+                var yes = "Created By:"+results[i].login.username
+                var no = results[i].MovieReview.review
+                array[0][i] = {Username: yes}
+                array[1][i] = {Review: no}
             }
         }
         //console.log("Does this actually work "+output);
