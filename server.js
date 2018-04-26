@@ -25,12 +25,12 @@ MongoClient.connect(url, function(err, database) {
 app.get('/', function(req, res) {
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-            console.log("logged in");
+            //console.log("logged in");
             res.render('pages/MainPageLoggedIn', {user: result});
             return;
         })
     } else {
-        console.log("logged out");
+        //console.log("logged out");
         res.render('pages/MainPage');
         return;
     }
@@ -40,12 +40,12 @@ app.get('/SearchPage', function(req, res) {
     console.log(req.body)
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-        console.log("logged in");
+        //console.log("logged in");
         res.render('pages/SearchPageLoggedIn', {user: result});
         return;
     })
     } else {
-        console.log("logged out");
+        //console.log("logged out");
         res.render('pages/SearchPage');
         return;
     }
