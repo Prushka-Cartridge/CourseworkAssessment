@@ -82,7 +82,8 @@ app.get('/MoviePage', function(req, res) {
       value += string[i] + " ";
     }
     movieTitle = value;
-    console.log("Movie Title"+movieTitle)
+    //console.log("Movie Title"+movieTitle)
+    var array[];
     db.collection('MovieInfo').find({"MovieInfo.title":movieTitle}).toArray(function(err, results) {
         if (err) throw err;
         console.log(results)
@@ -90,12 +91,13 @@ app.get('/MoviePage', function(req, res) {
             output += "No reviews exist for this movie";
         } else {
             for(var i = 0; i < results.length; i++){
-                output += "<div> <div>Created By:"+results[i].login.username+"</div>";
-                output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
+                // output += "<div> <div>Created By:"+results[i].login.username+"</div>";
+                // output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
+                array[i] = "<div> <div>Created By:"+results[i].login.username+"</div><div> Review:"+results[i].MovieReview.review+"</div> </div>"
             }
         }
         let ejs = require('ejs');
-        html = ejs.render('<%= output %>', output);
+        html = ejs.render('<%= array %>', {array: array});
         //console.log("Does this actually work "+output);
     })
     return;
