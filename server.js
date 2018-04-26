@@ -52,7 +52,7 @@ app.get('/SearchPage', function(req, res) {
 });
 
 app.get('/MoviePage', function(req, res) {
-    console.log(req)
+    console.log(req.body)
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
             res.render('pages/MoviePageLoggedIn', {user: result});
