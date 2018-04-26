@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 //THIS CODE BELOW SHOULD CREATE A DATABASE
 
 var db;
-var username;
+var username = "";
 var password = "";
 MongoClient.connect(url, function(err, database) {
     if (err) throw err;
@@ -160,8 +160,9 @@ app.post('/addMovie', function(req, res) {
     db.collection('MovieInfo').save(datatostore, function(err, result) {
         if (err) throw err;
         console.log('SignUp')
+        res.redirect("/");
     })
-    res.redirect("/")
+
 })
 
 
