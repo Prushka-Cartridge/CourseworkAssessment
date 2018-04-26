@@ -85,6 +85,7 @@ app.get('/testing', function(req, res) {
 
 
 app.post('/Login', function(req, res) {
+    console.log(req.body);
     username = req.body.username;
     password = req.body.password;
     db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
