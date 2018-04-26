@@ -160,8 +160,8 @@ app.post('/addMovie', function(req, res) {
     db.collection('MovieInfo').save(datatostore, function(err, result) {
         if (err) throw err;
         console.log('SignUp')
-        res.redirect("/")
     })
+    res.redirect("/")
 })
 
 
