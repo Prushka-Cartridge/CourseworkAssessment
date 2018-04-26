@@ -16,6 +16,8 @@ app.set('view engine', 'ejs');
 var db;
 var username = "";
 var password = "";
+var movieTitle = "";
+
 MongoClient.connect(url, function(err, database) {
     if (err) throw err;
     db = database;
@@ -53,31 +55,62 @@ app.get('/SearchPage', function(req, res) {
 
 app.get('/MoviePage', function(req, res) {
     console.log(req.body)
-    if(req.session.loggedin){
-        db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-        res.render('pages/MoviePageLoggedIn', {user: result});
-        })
-    } else {
-        //console.log("logged out");
-        res.render('pages/MoviePage');
-    }
+    // if(req.session.loggedin){
+    //     db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
+    //     res.render('pages/MoviePageLoggedIn', {user: result});
+    //     })
+    // } else {
+    //     //console.log("logged out");
+    //     res.render('pages/MoviePage');
+    // }
 
     var output = "";
+    //console.log(req.originalUrl);
 
-    db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, results) {
+    var searchString = req.originalUrl
+    searchString = searchString.substring(1);
+    var nvPairs = searchString.split("&");
+
+  	for (i = 0; i < nvPairs.length; i++) {
+  	   var nvPair = nvPairs[i].split("=");
+  	   var name = nvPair[0];
+  	   var value = nvPair[1];
+    }
+    var string = value.split("+");
+    value = "";
+    for(i = 0; i < string.length; i++){
+      value += string[i] + " ";
+    }
+    movieTitle = value;
+    //console.log("Movie Title"+movieTitle)
+    db.collection('MovieInfo').find({"MovieInfo.title":movieTitle}).toArray(function(err, results) {
+        var array = [results.length]
         if (err) throw err;
-        //console.log(results)
-        console.log(req.body.title);
-        if(!results){
+        console.log(results)
+        if(results.length == 0){
             output += "No reviews exist for this movie";
         } else {
             for(var i = 0; i < results.length; i++){
-                output += "<div> <div>Created By:"+results[i].login.username+"</div>";
-                output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
+                // output += "<div> <div>Created By:"+results[i].login.username+"</div>";
+                // output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
+                var yes = "Created By:"+results[i].login.username
+                var no = "Review:"+results[i].MovieReview.review
+                array[i] = {Username: yes, Review: no}
+                console.log(array[i]);
             }
         }
+        //console.log("Does this actually work "+output);
+
+        if(req.session.loggedin){
+            db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
+            res.render('pages/MoviePageLoggedIn', {user: result, array: array});
+            })
+        } else {
+            //console.log("logged out");
+            res.render('pages/MoviePage', {array: array});
+        }
+        return;
     })
-    console.log(output);
 });
 
 app.get('/testing', function(req, res) {
@@ -145,18 +178,19 @@ app.post('/testing', function(req, res) {
 })
 
 app.post('/addMovie', function(req, res) {
+
     var datatostore;
     console.log(req.body);
     if(!username){
         datatostore = {
         "login":{"username":"Guest"},
-        "MovieInfo":{"title":req.body.title},
+        "MovieInfo":{"title":movieTitle},
         "MovieReview":{"review":req.body.movieReview},
         }
     } else {
         datatostore = {
         "login":{"username":username},
-        "MovieInfo":{"title":req.body.movieTitle},
+        "MovieInfo":{"title":movieTitle},
         "MovieReview":{"review":req.body.movieReview},
         }
     }
