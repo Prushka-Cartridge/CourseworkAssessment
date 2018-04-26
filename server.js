@@ -144,12 +144,14 @@ app.post('/testing', function(req, res) {
 
 app.post('/addMovie', function(req, res) {
     if(!username){
+        console.log("p1")
         var datatostore = {
         "login":{"username":"Guest"},
         "MovieInfo":{"title":req.body.movieTitle},
         "MovieReview":{"review":req.body.movieReview},
         }
     } else {
+        console.log("p1")
         var datatostore = {
         "login":{"username":username},
         "MovieInfo":{"title":req.body.movieTitle},
@@ -163,7 +165,6 @@ app.post('/addMovie', function(req, res) {
         res.redirect("/");
         return;
     })
-
 })
 
 
