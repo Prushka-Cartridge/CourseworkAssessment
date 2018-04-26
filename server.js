@@ -87,6 +87,7 @@ app.get('/MoviePage', function(req, res) {
         if (err) throw err;
         //console.log(results)
         console.log(movieTitle);
+        console.log(results.length)
         if(!results){
             output += "No reviews exist for this movie";
         } else {
