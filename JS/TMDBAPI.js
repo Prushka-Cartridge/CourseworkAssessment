@@ -163,7 +163,7 @@ function showMovieOnMoviePage(){
   }
   console.log(value);
   getResultsFromTMDB2(value);
-  //displayReviews();
+  displayReviews();
   return false;
 }
 
@@ -195,10 +195,6 @@ function addResult(jsondata){
   }
 }
 
-function displayReviews(){
-    var title = document.location.title;
-    return title;
-}
 
 // Get the modal
 
