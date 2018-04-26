@@ -51,10 +51,10 @@ app.get('/SearchPage', function(req, res) {
 });
 
 app.get('/MoviePage', function(req, res) {
+    var output = "";
     db.collection('MovieInfo').find(req.body.title).toArray(function(err, result) {
         if (err) throw err;
         console.log(req.body.title);
-        var output = "";
         if(!result){
             output += "No reviews exist for this movie";
         } else {
