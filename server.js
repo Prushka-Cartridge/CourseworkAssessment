@@ -80,8 +80,6 @@ app.get('/MoviePage', function(req, res) {
         })
         console.log(output);
     }
-
-
 });
 
 app.get('/testing', function(req, res) {
