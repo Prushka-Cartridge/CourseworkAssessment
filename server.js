@@ -55,14 +55,14 @@ app.get('/SearchPage', function(req, res) {
 
 app.get('/MoviePage', function(req, res) {
     console.log(req.body)
-    if(req.session.loggedin){
-        db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-        res.render('pages/MoviePageLoggedIn', {user: result});
-        })
-    } else {
-        //console.log("logged out");
-        res.render('pages/MoviePage');
-    }
+    // if(req.session.loggedin){
+    //     db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
+    //     res.render('pages/MoviePageLoggedIn', {user: result});
+    //     })
+    // } else {
+    //     //console.log("logged out");
+    //     res.render('pages/MoviePage');
+    // }
 
     var output = "";
     //console.log(req.originalUrl);
@@ -101,6 +101,14 @@ app.get('/MoviePage', function(req, res) {
         html = ejs.render('<%= array.join(); %>', {array: array});
         //console.log("Does this actually work "+output);
     })
+    if(req.session.loggedin){
+        db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
+        res.render('pages/MoviePageLoggedIn', {user: result});
+        })
+    } else {
+        //console.log("logged out");
+        res.render('pages/MoviePage');
+    }
     return;
 });
 
