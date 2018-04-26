@@ -25,7 +25,6 @@ MongoClient.connect(url, function(err, database) {
 });
 
 app.get('/', function(req, res) {
-    console.log(user);
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
             //console.log("logged in");
@@ -95,7 +94,8 @@ app.get('/MoviePage', function(req, res) {
                 output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
             }
         }
-        console.log("Does this actually work "+output);
+        html = ejs.render('<%= output %>', output);
+        //console.log("Does this actually work "+output);
     })
     return;
 });
