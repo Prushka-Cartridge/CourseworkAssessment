@@ -64,7 +64,7 @@ app.get('/MoviePage', function(req, res) {
     db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, results) {
         if (err) throw err;
         console.log(req.body.title);
-        if(!result){
+        if(!results){
             output += "No reviews exist for this movie";
         } else {
             for(var i = 0; i < results.length; i++){
