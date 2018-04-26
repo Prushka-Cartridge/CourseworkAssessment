@@ -1,5 +1,4 @@
 var express = require('express');
-var test = require('./JS/test');
 
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/MovieReviews";
@@ -61,7 +60,7 @@ app.get('/MoviePage', function(req, res) {
         console.log("logged out");
         res.render('pages/MoviePage');
     }
-    console.log(test.getTitle());
+
     var output = "";
 
     db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, results) {

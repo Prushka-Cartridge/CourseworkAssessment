@@ -132,7 +132,7 @@ function addResultTitles(jsondata){
       var temp1 = "<div class = flex-item>"
       var temp2 = "<a href="+ link +">"
       var temp3 = "<div class = poster>" + img + "</div>"
-      var temp4 = "<div class = title>" + title + "</div>"
+      var temp4 = "<div class = title><form><input>" + title + "</form></div>"
       var temp5 = "</div>"
       htmlstring += temp1 + temp2 + temp3 + temp4 + temp5
 
