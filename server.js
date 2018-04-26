@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 //THIS CODE BELOW SHOULD CREATE A DATABASE
 
 var db;
-var username;
+var username = "";
 var password = "";
 MongoClient.connect(url, function(err, database) {
     if (err) throw err;
@@ -37,6 +37,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/SearchPage', function(req, res) {
+    console.log(req.body)
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         console.log("logged in");
@@ -51,32 +52,33 @@ app.get('/SearchPage', function(req, res) {
 });
 
 app.get('/MoviePage', function(req, res) {
+    console.log("Come on"+req.body)
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-            console.log("logged in");
             res.render('pages/MoviePageLoggedIn', {user: result});
         })
     } else {
         console.log("logged out");
         res.render('pages/MoviePage');
     }
+
     var output = "";
-    db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, result) {
+
+    db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, results) {
         if (err) throw err;
+        //console.log(results)
         console.log(req.body.title);
-        if(!result){
+        if(!results){
             output += "No reviews exist for this movie";
         } else {
-            for(var i = 0; i < result.length; i++){
-                output += "<div> <div>Created By:"+result.login.username+"</div>";
-                output += "<div> Review:"+result.MovieReview.review+"</div> </div>"
+            for(var i = 0; i < results.length; i++){
+                output += "<div> <div>Created By:"+results[i].login.username+"</div>";
+                output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
             }
         }
-
     })
     console.log(output);
 });
-
 
 app.get('/testing', function(req, res) {
     res.render('pages/testing');
@@ -143,14 +145,16 @@ app.post('/testing', function(req, res) {
 })
 
 app.post('/addMovie', function(req, res) {
+    var datatostore;
+    console.log(req.body);
     if(!username){
-        var datatostore = {
+        datatostore = {
         "login":{"username":"Guest"},
-        "MovieInfo":{"title":req.body.movieTitle},
+        "MovieInfo":{"title":req.body.title},
         "MovieReview":{"review":req.body.movieReview},
         }
     } else {
-        var datatostore = {
+        datatostore = {
         "login":{"username":username},
         "MovieInfo":{"title":req.body.movieTitle},
         "MovieReview":{"review":req.body.movieReview},
@@ -160,7 +164,8 @@ app.post('/addMovie', function(req, res) {
     db.collection('MovieInfo').save(datatostore, function(err, result) {
         if (err) throw err;
         console.log('SignUp')
-        res.redirect("/")
+        res.redirect("/");
+        return;
     })
 })
 
