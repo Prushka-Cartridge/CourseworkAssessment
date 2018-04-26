@@ -64,10 +64,21 @@ app.get('/MoviePage', function(req, res) {
 
     var output = "";
     console.log(req.originalUrl);
-    db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, results) {
+
+    var searchString = req.originalUrl
+    searchString = searchString.substring(1);
+    var nvPairs = searchString.split("&");
+
+  	for (i = 0; i < nvPairs.length; i++) {
+  	   var nvPair = nvPairs[i].split("=");
+  	   var name = nvPair[0];
+  	   var value = nvPair[1];
+    }
+
+    db.collection('MovieInfo').find(value}).toArray(function(err, results) {
         if (err) throw err;
         //console.log(results)
-        console.log(req.body.title);
+        console.log(value);
         if(!results){
             output += "No reviews exist for this movie";
         } else {
