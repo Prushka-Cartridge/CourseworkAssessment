@@ -25,6 +25,7 @@ MongoClient.connect(url, function(err, database) {
 });
 
 app.get('/', function(req, res) {
+    console.log(user);
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
             //console.log("logged in");
