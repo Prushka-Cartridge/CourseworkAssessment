@@ -88,9 +88,7 @@ app.post('/Login', function(req, res) {
         }
     })
 })
- {
-      user: result
-    })
+
 app.post('/LogOut', function(req, res) {
     req.session.loggedin = false;
     req.session.destroy();
