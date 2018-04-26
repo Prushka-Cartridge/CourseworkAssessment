@@ -61,15 +61,15 @@ app.get('/MoviePage', function(req, res) {
         res.render('pages/MoviePage');
     }
     var output = "";
-    db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, result) {
+    db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, results) {
         if (err) throw err;
         console.log(req.body.title);
         if(!result){
             output += "No reviews exist for this movie";
         } else {
             for(var i = 0; i < result.length; i++){
-                output += "<div> <div>Created By:"+result.login.username+"</div>";
-                output += "<div> Review:"+result.MovieReview.review+"</div> </div>"
+                output += "<div> <div>Created By:"+results.login.username+"</div>";
+                output += "<div> Review:"+results.MovieReview.review+"</div> </div>"
             }
         }
 
@@ -161,6 +161,7 @@ app.post('/addMovie', function(req, res) {
         if (err) throw err;
         console.log('SignUp')
         res.redirect("/")
+        return;
     })
 })
 
