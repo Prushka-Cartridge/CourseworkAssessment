@@ -185,7 +185,7 @@ function addResult(jsondata){
 
   } else {
     var imgString =  "<div class = image>" +  img + "</div>";
-    var titleString = "<div class = title><h2 id = title>" + title + "</h2></div>";
+    var titleString = "<div class = title><h2 name = title>" + title + "</h2></div>";
     var descriptionString = "<div class = description>" + description + "</div>";
     //var yearString = "<div class = year>Release Year:" + year + "</div></div>";
     htmlstring = imgString + titleString + descriptionString;
