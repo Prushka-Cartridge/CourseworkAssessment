@@ -53,7 +53,7 @@ app.get('/SearchPage', function(req, res) {
 app.get('/MoviePage', function(req, res) {
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-            console.log("logged in");
+            console.log("Movie Page"+{user: result});
             res.render('pages/MoviePageLoggedIn', {user: result});
         })
     } else {
@@ -65,7 +65,7 @@ app.get('/MoviePage', function(req, res) {
 
     db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, results) {
         if (err) throw err;
-        console.log(results)
+        //console.log(results)
         console.log(req.body.title);
         if(!results){
             output += "No reviews exist for this movie";
