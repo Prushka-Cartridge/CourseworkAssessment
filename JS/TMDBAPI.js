@@ -145,7 +145,7 @@ function addResultTitles(jsondata){
 }
 
 
-function yes(){
+function showMovieOnMoviePage(){
   var searchString = document.location.search;
   searchString = searchString.substring(1);
   var nvPairs = searchString.split("&");
@@ -163,6 +163,7 @@ function yes(){
   }
   console.log(value);
   getResultsFromTMDB2(value);
+  //displayReviews();
   return false;
 }
 
@@ -192,7 +193,11 @@ function addResult(jsondata){
     //htmlstring = "<div class = oneMovie> <div class = image>" +  img + "</div> <div class = title> Title:" + title + "  </div> <div class = year>Release Year:" + year + "</div></div>";
     $("#searchResults").append(htmlstring);
   }
+}
 
+function displayReviews(){
+    var title = document.location.title;
+    return title;
 }
 
 // Get the modal
