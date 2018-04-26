@@ -74,7 +74,7 @@ app.get('/MoviePage', function(req, res) {
         }
 
     })
-    res.send(output);
+    console.log(output);
 });
 
 
