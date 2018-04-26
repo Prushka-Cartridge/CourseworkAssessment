@@ -97,17 +97,15 @@ app.get('/MoviePage', function(req, res) {
                 array[i] = "<div> <div>Created By:"+results[i].login.username+"</div><div> Review:"+results[i].MovieReview.review+"</div> </div>"
             }
         }
-        let ejs = require('ejs');
-        html = ejs.render('<%= array.join(); %>', {array: array});
         //console.log("Does this actually work "+output);
     })
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-        res.render('pages/MoviePageLoggedIn', {user: result});
+        res.render('pages/MoviePageLoggedIn', {{user: result},{array: array}});
         })
     } else {
         //console.log("logged out");
-        res.render('pages/MoviePage');
+        res.render('pages/MoviePage', {array: array});
     }
     return;
 });
