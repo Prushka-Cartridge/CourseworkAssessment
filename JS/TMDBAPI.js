@@ -129,11 +129,11 @@ function addResultTitles(jsondata){
       var img = "<img src="+poster+" alt=Poster>";
 
       var link = "MoviePage?q=" + url;
-      var temp1 = "<div class = flex-item>"
+      var temp1 = "<form> <div class = flex-item>"
       var temp2 = "<a href="+ link +">"
       var temp3 = "<div class = poster>" + img + "</div>"
-      var temp4 = "<div class = title><form type=hidden><input>" + title + "</form></div>"
-      var temp5 = "</div>"
+      var temp4 = "<div class = title>" + title + "</div>"
+      var temp5 = "</form> </div>"
       htmlstring += temp1 + temp2 + temp3 + temp4 + temp5
 
       //console.log(htmlstring);
