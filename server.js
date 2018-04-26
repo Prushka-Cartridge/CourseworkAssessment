@@ -93,7 +93,7 @@ app.get('/MoviePage', function(req, res) {
             for(var i = 0; i < results.length; i++){
                 // output += "<div> <div>Created By:"+results[i].login.username+"</div>";
                 // output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
-                var yes = "<div> <div>Created By:"+results[i].login.username+"</div><div> Review:"+results[i].MovieReview.review+"</div> </div>"
+                var yes = "Username: Created By:"+results[i].login.username, "Review:"+results[i].MovieReview.review
                 array[i] = {info: yes}
             }
         }
@@ -108,7 +108,7 @@ app.get('/MoviePage', function(req, res) {
             res.render('pages/MoviePage', {array: array});
         }
         return;
-    })    
+    })
 });
 
 app.get('/testing', function(req, res) {
