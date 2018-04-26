@@ -83,9 +83,9 @@ app.get('/MoviePage', function(req, res) {
     }
     movieTitle = value;
     //console.log("Movie Title"+movieTitle)
-
+    var array = [results.length];
     db.collection('MovieInfo').find({"MovieInfo.title":movieTitle}).toArray(function(err, results) {
-        var array = [results.length];
+
         if (err) throw err;
         console.log(results)
         if(results.length == 0){
