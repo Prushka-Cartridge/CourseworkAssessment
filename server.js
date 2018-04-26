@@ -79,8 +79,9 @@ app.get('/MoviePage', function(req, res) {
     var string = value.split("+");
     value = "";
     for(i = 0; i < string.length; i++){
-      movieTitle += string[i] + " ";
+      value += string[i] + " ";
     }
+    movieTitle = value;
 
     db.collection('MovieInfo').find({title:value}).toArray(function(err, results) {
         if (err) throw err;
