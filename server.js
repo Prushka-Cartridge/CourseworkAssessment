@@ -14,7 +14,8 @@ app.set('view engine', 'ejs');
 //THIS CODE BELOW SHOULD CREATE A DATABASE
 
 var db;
-
+var username = "";
+var password = "";
 MongoClient.connect(url, function(err, database) {
     if (err) throw err;
     db = database;
@@ -23,9 +24,11 @@ MongoClient.connect(url, function(err, database) {
 
 app.get('/', function(req, res) {
     if(req.session.loggedin){
-        console.log("logged in");
-        res.render('pages/MainPageLoggedIn', {user: result});
-        return;
+        db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
+            console.log("logged in");
+            res.render('pages/MainPageLoggedIn', {user: result});
+            return;
+        })
     } else {
         console.log("logged out");
         res.render('pages/MainPage');
@@ -35,9 +38,11 @@ app.get('/', function(req, res) {
 
 app.get('/SearchPage', function(req, res) {
     if(req.session.loggedin){
+        db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         console.log("logged in");
         res.render('pages/SearchPageLoggedIn', {user: result});
         return;
+    })
     } else {
         console.log("logged out");
         res.render('pages/SearchPage');
@@ -47,9 +52,11 @@ app.get('/SearchPage', function(req, res) {
 
 app.get('/MoviePage', function(req, res) {
     if(req.session.loggedin){
+        db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         console.log("logged in");
         res.render('pages/MoviePageLoggedIn', {user: result});
         return;
+    })
     } else {
         console.log("logged out");
         res.render('pages/MoviePage');
@@ -64,8 +71,8 @@ app.get('/testing', function(req, res) {
 
 
 app.post('/Login', function(req, res) {
-    var username = req.body.username;
-    var password = req.body.password;
+    username = req.body.username;
+    password = req.body.password;
     db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         if (err) throw err;
 
