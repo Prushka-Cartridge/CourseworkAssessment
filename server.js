@@ -75,7 +75,7 @@ app.get('/MoviePage', function(req, res) {
   	   var value = nvPair[1];
     }
 
-    db.collection('MovieInfo').find(value}).toArray(function(err, results) {
+    db.collection('MovieInfo').find(value).toArray(function(err, results) {
         if (err) throw err;
         //console.log(results)
         console.log(value);
