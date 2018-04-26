@@ -64,10 +64,9 @@ app.get('/MoviePage', function(req, res) {
     db.collection('MovieInfo').find({title:req.body.title}).toArray(function(err, results) {
         if (err) throw err;
         console.log(req.body.title);
-        console.log(jsondata.results);
         if(!results){
             output += "No reviews exist for this movie";
-        } else {            
+        } else {
             for(var i = 0; i < results.length; i++){
                 output += "<div> <div>Created By:"+results[i].login.username+"</div>";
                 output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
