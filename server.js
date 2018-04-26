@@ -104,7 +104,7 @@ app.get('/MoviePage', function(req, res) {
     for(var i = 0; i < array.length; i++){
         string += array[i]
     }
-    console.log(string)''
+    console.log(string)
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         res.render('pages/MoviePageLoggedIn', {user: result, array: array});
