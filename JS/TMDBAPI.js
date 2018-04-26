@@ -163,7 +163,6 @@ function showMovieOnMoviePage(){
   }
   console.log(value);
   getResultsFromTMDB2(value);
-  displayReviews();
   return false;
 }
 
