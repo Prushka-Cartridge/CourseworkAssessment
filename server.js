@@ -100,11 +100,12 @@ app.get('/MoviePage', function(req, res) {
         }
         //console.log("Does this actually work "+output);
     })
-    var string = "yes"
+    var e = "yes"
     for(array.forEach(function(a){
-        string += a
+        e += a
     })
-    console.log(string)
+    console.log(e)
+
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         res.render('pages/MoviePageLoggedIn', {user: result, array: array});
