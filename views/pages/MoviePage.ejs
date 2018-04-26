@@ -3,7 +3,7 @@
 <head>
     <% include ../partials/head %>
     <title>Movie Page</title>
-    <script type="text/javascript" src="/JS/Login.js"></script>
+    <link rel="stylesheet" href="/CSS/form.css">
 
 </head>
 <header>
@@ -21,7 +21,7 @@
         <div id = "createReview" method="post" action="/addMovie">
             <h2>Create Review</h2>
             <form>
-                <textarea name="movieReview" rows="8"></textarea>
+                <textarea id "movieReviewTextArea"name="movieReview" rows="8"></textarea>
             </form>
         </div>
 
