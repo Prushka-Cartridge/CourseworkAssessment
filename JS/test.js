@@ -1,3 +1,3 @@
 function getTitle(){
-    return var searchbox = document.getElementById("title");
+    return document.getElementById("title");
 }
