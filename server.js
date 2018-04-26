@@ -101,8 +101,8 @@ app.get('/MoviePage', function(req, res) {
         //console.log("Does this actually work "+output);
     })
     var string = "yes"
-    for(var i = 0; i < array.length; i++){
-        string += array[i]
+    for(array.forEach(function(a))){
+        string += a
     }
     console.log(string)
     if(req.session.loggedin){
