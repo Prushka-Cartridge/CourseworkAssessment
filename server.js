@@ -94,6 +94,7 @@ app.get('/MoviePage', function(req, res) {
                 output += "<div> Review:"+results[i].MovieReview.review+"</div> </div>"
             }
         }
+        let ejs = require('ejs');
         html = ejs.render('<%= output %>', output);
         //console.log("Does this actually work "+output);
     })
