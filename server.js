@@ -55,10 +55,10 @@ app.get('/MoviePage', function(req, res) {
     console.log(req.body)
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-            res.render('pages/MoviePageLoggedIn', {user: result});
+        res.render('pages/MoviePageLoggedIn', {user: result});
         })
     } else {
-        console.log("logged out");
+        //console.log("logged out");
         res.render('pages/MoviePage');
     }
 
