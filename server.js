@@ -101,7 +101,7 @@ app.get('/MoviePage', function(req, res) {
     })
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-        res.render('pages/MoviePageLoggedIn', {{user: result},{array: array}});
+        res.render('pages/MoviePageLoggedIn', {user: result}, {array: array});
         })
     } else {
         //console.log("logged out");
