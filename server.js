@@ -21,10 +21,10 @@ MongoClient.connect(url, function(err, database) {
     console.log('listening on 8080');
 });
 
-app.get('/', function(req, res,  user: result) {
+app.get('/', function(req, res) {
     if(req.session.loggedin){
         console.log("logged in");
-        res.render('pages/MainPageLoggedIn');
+        res.render('pages/MainPageLoggedIn', {user: result});
         return;
     } else {
         console.log("logged out");
@@ -33,10 +33,10 @@ app.get('/', function(req, res,  user: result) {
     }
 });
 
-app.get('/SearchPage', function(req, res,  user: result) {
+app.get('/SearchPage', function(req, res) {
     if(req.session.loggedin){
         console.log("logged in");
-        res.render('pages/SearchPageLoggedIn');
+        res.render('pages/SearchPageLoggedIn', {user: result});
         return;
     } else {
         console.log("logged out");
@@ -45,10 +45,10 @@ app.get('/SearchPage', function(req, res,  user: result) {
     }
 });
 
-app.get('/MoviePage', function(req, res,  user: result) {
+app.get('/MoviePage', function(req, res) {
     if(req.session.loggedin){
         console.log("logged in");
-        res.render('pages/MoviePageLoggedIn');
+        res.render('pages/MoviePageLoggedIn', {user: result});
         return;
     } else {
         console.log("logged out");
