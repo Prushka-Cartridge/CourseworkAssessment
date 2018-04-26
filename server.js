@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 //THIS CODE BELOW SHOULD CREATE A DATABASE
 
 var db;
-var username = "";
+var username;
 var password = "";
 MongoClient.connect(url, function(err, database) {
     if (err) throw err;
@@ -143,10 +143,18 @@ app.post('/testing', function(req, res) {
 })
 
 app.post('/addMovie', function(req, res) {
-    var datatostore = {
-    "login":{"username":username},
-    "MovieInfo":{"title":req.body.movieTitle},
-    "MovieReview":{"review":req.body.movieReview},
+    if(!username){
+        var datatostore = {
+        "login":{"username":"Guest"},
+        "MovieInfo":{"title":req.body.movieTitle},
+        "MovieReview":{"review":req.body.movieReview},
+        }
+    } else {
+        var datatostore = {
+        "login":{"username":username},
+        "MovieInfo":{"title":req.body.movieTitle},
+        "MovieReview":{"review":req.body.movieReview},
+        }
     }
 
     db.collection('MovieInfo').save(datatostore, function(err, result) {
