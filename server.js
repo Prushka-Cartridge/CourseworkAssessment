@@ -51,7 +51,6 @@ app.get('/SearchPage', function(req, res) {
 });
 
 app.get('/MoviePage', function(req, res) {
-    console.log(req);
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
             console.log("logged in");
