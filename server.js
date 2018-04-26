@@ -51,30 +51,31 @@ app.get('/SearchPage', function(req, res) {
 });
 
 app.get('/MoviePage', function(req, res) {
+    db.collection('MovieInfo').find(req.body.title).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(req.body.title);
+        var output = "";
+        if(!result){
+            output += "No reviews exist for this movie";
+        } else {
+            for(var i = 0; i < result.length; i++){
+                output += "<div> <div>Created By:"+result.login.username+"</div>";
+                output += "<div> Review:"+result.MovieReview.review+"</div> </div>"
+            }
+        }
+
+    })
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         console.log("logged in");
         res.render('pages/MoviePageLoggedIn', {user: result});
-        db.collection('MovieInfo').find(req.body.title).toArray(function(err, result) {
-            if (err) throw err;
-
-            var output = "";
-            if(!result){
-                output += "No reviews exist for this movie";
-            } else {
-                for(var i = 0; i < result.length; i++){
-                    output += "<div> <div>Created By:"+result.login.username+"</div>";
-                    output += "<div> Review:"+result.MovieReview.review+"</div> </div>"
-                }
-            }
-            $("#movieReviews").append(output);
-
-        })
+        $("#movieReviews").append(output);
         return;
     })
     } else {
         console.log("logged out");
         res.render('pages/MoviePage');
+        $("#movieReviews").append(output);
         return;
     }
 });
