@@ -37,6 +37,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/SearchPage', function(req, res) {
+    console.log("Search Page"+req.body)
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         console.log("logged in");
@@ -53,7 +54,6 @@ app.get('/SearchPage', function(req, res) {
 app.get('/MoviePage', function(req, res) {
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-            console.log("Movie Page"+{user: result});
             res.render('pages/MoviePageLoggedIn', {user: result});
         })
     } else {
