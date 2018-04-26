@@ -96,6 +96,7 @@ app.get('/MoviePage', function(req, res) {
                 var yes = "Created By:"+results[i].login.username
                 var no = results[i].MovieReview.review
                 array[i] = {Username: yes, Review: no}
+                console.log(array[i]);
             }
         }
         //console.log("Does this actually work "+output);
