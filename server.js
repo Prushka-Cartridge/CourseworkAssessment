@@ -37,7 +37,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/SearchPage', function(req, res) {
-    console.log("Search Page"+req.body)
+    console.log(req.body)
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         console.log("logged in");
