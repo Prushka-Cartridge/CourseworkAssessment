@@ -16,6 +16,8 @@ app.set('view engine', 'ejs');
 var db;
 var username = "";
 var password = "";
+var movieTitle = "";
+
 MongoClient.connect(url, function(err, database) {
     if (err) throw err;
     db = database;
@@ -77,7 +79,7 @@ app.get('/MoviePage', function(req, res) {
     var string = value.split("+");
     value = "";
     for(i = 0; i < string.length; i++){
-      value += string[i] + " ";
+      movieTitle += string[i] + " ";
     }
 
     db.collection('MovieInfo').find({title:value}).toArray(function(err, results) {
@@ -162,33 +164,18 @@ app.post('/testing', function(req, res) {
 
 app.post('/addMovie', function(req, res) {
 
-    var searchString = req.originalUrl
-    searchString = searchString.substring(1);
-    var nvPairs = searchString.split("&");
-
-  	for (i = 0; i < nvPairs.length; i++) {
-  	   var nvPair = nvPairs[i].split("=");
-  	   var name = nvPair[0];
-  	   var value = nvPair[1];
-    }
-    var string = value.split("+");
-    value = "";
-    for(i = 0; i < string.length; i++){
-      value += string[i] + " ";
-    }
-
     var datatostore;
     console.log(req.body);
     if(!username){
         datatostore = {
         "login":{"username":"Guest"},
-        "MovieInfo":{"title":value},
+        "MovieInfo":{"title":movieTitle},
         "MovieReview":{"review":req.body.movieReview},
         }
     } else {
         datatostore = {
         "login":{"username":username},
-        "MovieInfo":{"title":value},
+        "MovieInfo":{"title":movieTitle},
         "MovieReview":{"review":req.body.movieReview},
         }
     }
