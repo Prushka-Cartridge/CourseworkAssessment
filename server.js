@@ -149,7 +149,7 @@ app.post('/addMovie', function(req, res) {
     if(!username){
         datatostore = {
         "login":{"username":"Guest"},
-        "MovieInfo":{"title":req.body.movieTitle},
+        "MovieInfo":{"title":req.body.title},
         "MovieReview":{"review":req.body.movieReview},
         }
     } else {
