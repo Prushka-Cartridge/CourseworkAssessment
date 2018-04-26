@@ -1,5 +1,5 @@
 var express = require('express');
-
+var test = require('./JS/test')
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/MovieReviews";
 const session = require('express-session'); //npm install express-session
@@ -85,7 +85,6 @@ app.get('/testing', function(req, res) {
 
 
 app.post('/Login', function(req, res) {
-    console.log(res.body);
     username = req.body.username;
     password = req.body.password;
     db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
