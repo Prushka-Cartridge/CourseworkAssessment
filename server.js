@@ -97,7 +97,7 @@ app.post('/Login', function(req, res) {
         }
 
         if(result.login.password == password){
-            console.log('Login')
+            //console.log('Login')
             req.session.loggedin = true;
             res.redirect("/");
             console.log("Username is in the system");
@@ -131,7 +131,7 @@ app.post('/SignUp', function(req, res) {
 
     db.collection('UserInfo').save(datatostore, function(err, result) {
         if (err) throw err;
-        console.log('SignUp')
+        //console.log('SignUp')
         res.redirect("/")
     })
 })
@@ -139,7 +139,7 @@ app.post('/SignUp', function(req, res) {
 app.post('/testing', function(req, res) {
     db.collection('UserInfo').drop(function(err, result){
         if (err) throw err;
-        console.log('test')
+        //console.log('test')
         res.redirect("/")
     })
 })
@@ -163,7 +163,7 @@ app.post('/addMovie', function(req, res) {
 
     db.collection('MovieInfo').save(datatostore, function(err, result) {
         if (err) throw err;
-        console.log('SignUp')
+        //console.log('SignUp')
         res.redirect("/");
         return;
     })
