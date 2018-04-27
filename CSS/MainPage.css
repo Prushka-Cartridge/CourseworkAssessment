@@ -1,7 +1,10 @@
 /* main section manipulation */
 
 body{
-  background-color:#131E3C;
+  /*background-color:#C9B1BD;*/
+  /*background-color: #8E7C93; */
+  /*background-color: #5B2333;*/
+  background-color:#9E768F;
   width:60%;
   margin: 0 auto;
 
@@ -22,10 +25,12 @@ main{
   height:100%;
   max-width: 100%;
   width:auto;
+  background-color: #F3E9DC;
 }
 
 footer{
   /*background-color:white;*/
+  /*background-color: #F3E9DC;*/
   text-align: center;
 }
 
@@ -79,7 +84,8 @@ h3 {
   /*padding: 25px 5px 0px 5px; */
 
   padding-top:25px;
-  padding-left:15px;
+
+  /*padding-left:15px;*/
 
   /*background-color:purple;*/
   width:30%;
