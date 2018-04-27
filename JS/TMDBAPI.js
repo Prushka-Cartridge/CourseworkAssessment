@@ -217,6 +217,7 @@ window.onclick = function(event) {
 $(document).ready(function()
 {
     $(".backup_picture").on("error", function(){
+        console.log(this)
         $(this).attr('src', '/Images/PosterPlaceholder.png');
     });
 });
