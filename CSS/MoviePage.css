@@ -19,3 +19,8 @@ main {
   text-align:center;
   right:50%;
 }
+
+#moviedesc {
+  color:white;
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
