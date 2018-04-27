@@ -13,34 +13,34 @@
 <body onload="ShowMoviesOnMoviePage()">
 
     <main>
+        <div id = "MoviePageMain">
+            <div id = "searchResults">
 
-        <div id = "searchResults">
+            </div>
 
-        </div>
+            <div id = "createReview">
+                <h2>Create Review</h2>
+                <form method="post" action="/addMovie">
+                    <textarea id = "moviereviewtextarea" name="movieReview" autocomplete = "off" required maxlength="10000"></textarea>
+                    <input type="submit" value="X" id="submit">
+                </form>
+            </div>
 
-        <div id = "createReview">
-            <h2>Create Review</h2>
-            <form method="post" action="/addMovie">
-                <textarea id = "moviereviewtextarea" name="movieReview" autocomplete = "off" required maxlength="10000"></textarea>
-                <input type="submit" value="X" id="submit">
-            </form>
-        </div>
+            <h2>Reviews</h2>
+            <div id = "movieReviews">
+                <div> <%= output %> </div>
+                <% array.forEach(function(info) { %>
+                    <div> <%= info.Username %> </div>
+                    <div> <%= info.Review %> </div>
+                    <% }); %>
+                </div>
+            </div>
+        </main>
 
-        <h2>Reviews</h2>
-        <div id = "movieReviews">
-            <div> <%= output %> </div>
-            <% array.forEach(function(info) { %>
-                <div> <%= info.Username %> </div>
-                <div> <%= info.Review %> </div>
-            <% }); %>
-        </div>
+        <footer>
+            <% include ../partials/footer %>
+        </footer>
 
-    </main>
+    </body>
 
-    <footer>
-        <% include ../partials/footer %>
-    </footer>
-
-</body>
-
-</html>
+    </html>
