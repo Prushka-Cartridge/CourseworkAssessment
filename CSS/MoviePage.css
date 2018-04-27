@@ -9,15 +9,19 @@ main {
     max-height: inherit;
 }
 
-#searchResults {
+#movieDisplay {
   background-color:#5D4A66;
+  margin:auto;
 }
 
-#moviepagediv {
-
-}
-
-#moviepagetitle {
-  margin:0 auto;
+#view {
+  margin:auto;
   text-align:center;
+  right:50%;
+}
+
+#moviedesc {
+  color:white;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size:8pt; 
 }

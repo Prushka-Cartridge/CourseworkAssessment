@@ -188,18 +188,18 @@ function addMovieInfoToMoviePage(jsondata){
   var poster = "http://image.tmdb.org/t/p/w92" + jsondata.results[0].poster_path;
   var description = jsondata.results[0].overview;
 
-  var img = "<img src="+poster+" alt=poster>";
+  var img = "<img src="+poster+" id=view alt=poster>";
   if(title == null){
 
   } else {
-    var imgString =  "<div class = image id = bobby>" +  img + "</div>";
-    var titleString = "<div class = title id = moviepagediv><h2 name = title id = moviepagetitle>" + title + "</h2></div>";
-    var descriptionString = "<div class = description>" + description + "</div>";
+    var imgString =  "<div class = image>" +  img + "</div>";
+    var titleString = "<div class = title><h2 name = title>" + title + "</h2></div>";
+    var descriptionString = "<div class = description><h3 id=moviedesc>" + description + "</h3></div>";
     //var yearString = "<div class = year>Release Year:" + year + "</div></div>";
     htmlstring = imgString + titleString + descriptionString;
     console.log(htmlstring);
     //htmlstring = "<div class = oneMovie> <div class = image>" +  img + "</div> <div class = title> Title:" + title + "  </div> <div class = year>Release Year:" + year + "</div></div>";
-    $("#searchResults").append(htmlstring);
+    $("#movieDisplay").append(htmlstring);
   }
 }
 
