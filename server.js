@@ -124,7 +124,7 @@ app.post('/Login', function(req, res) {
     db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         if (err) throw err;
 
-        if(!result){
+        if(result.length == 0){
             res.redirect('/');
             return
         }
@@ -136,7 +136,7 @@ app.post('/Login', function(req, res) {
             console.log("Username is in the system");
             return;
         } else {
-            alert("Incorrect Password")
+            //alert("Incorrect Password")
             console.log("Username isn't in the system");
             res.redirect("/");
             return;
@@ -162,10 +162,20 @@ app.post('/SignUp', function(req, res) {
     //"nat":req.body.nat
     }
 
-    db.collection('UserInfo').save(datatostore, function(err, result) {
+    db.collection('UserInfo').find({"login.username":req.body.username}).toArray(function(err, result) {
         if (err) throw err;
-        //console.log('SignUp')
-        res.redirect("/")
+        console.log(result)
+        if(result.length == 0){
+            console.log("Why do this")
+            db.collection('UserInfo').save(datatostore, function(err, result) {
+                if (err) throw err;
+                //console.log('SignUp')
+                res.redirect("/")
+            })
+        } else {
+            console.log("username already exists")
+            res.redirect("/")
+        }
     })
 })
 
