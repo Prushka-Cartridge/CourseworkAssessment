@@ -56,6 +56,22 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
+#loginbutton {
+  opacity:1
+}
+
+#signupbutton {
+  opacity:1;
+}
+
+#loginbutton:hover {
+  opacity:0.8;
+}
+
+#signupbutton:hover {
+  opacity:0.8;
+}
+
 button {
     background-color: #6A5D7B;
     color: white;
