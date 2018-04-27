@@ -166,16 +166,15 @@ app.post('/SignUp', function(req, res) {
         if (err) throw err;
         console.log(result)
         if(!result){
+            console.log("Why do this")
             db.collection('UserInfo').save(datatostore, function(err, result) {
                 if (err) throw err;
                 //console.log('SignUp')
                 res.redirect("/")
-                return;
             })
         } else {
             console.log("username already exists")
             res.redirect("/")
-            return;
         }
     })
 })
