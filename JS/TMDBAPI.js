@@ -1,3 +1,4 @@
+// Makes sure the searchbox has a value in it.
 function validate(){
   var searchbox = document.getElementById("searchbox");
 	var searchvalue = searchbox.value;
@@ -10,6 +11,7 @@ function validate(){
 			}
 }
 
+// Gets the jsondata for the newest content, least popular and lowest rated.
 function Content(){
   var urlNewest = "https://api.themoviedb.org/3/movie/latest?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US"
   $.getJSON(urlNewest, function(jsondata){
@@ -36,9 +38,10 @@ function Content(){
     });
   });
 
-  motd();
+  //motd();
 }
 
+// This adds the newest content info to the web page
 function addNewestContent(values){
   console.log(values);
   var poster = "http://image.tmdb.org/t/p/w92" + values.poster_path;
@@ -50,6 +53,7 @@ function addNewestContent(values){
   $("#NewestAddition").append(htmlstring);
 }
 
+// This adds the least popular info to the web page
 function addLeastContent(values){
   console.log(values);
   var poster = "http://image.tmdb.org/t/p/w92" + values.results[values.results.length-1].poster_path;
@@ -61,6 +65,7 @@ function addLeastContent(values){
   $("#LeastPopular").append(htmlstring);
 }
 
+// This adds the lowest rated info to the web page
 function addLowestContent(values){
   console.log(values);
   var poster = "http://image.tmdb.org/t/p/w92" + values.results[values.results.length-1].poster_path;
@@ -72,17 +77,8 @@ function addLowestContent(values){
   $("#LowestRated").append(htmlstring);
 }
 
-
-function getResultsFromTMDB(value){
-  var url = "https://api.themoviedb.org/3/search/movie?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1&include_adult=false&query="+value;
-  $.getJSON(url, function(jsondata){
-    addResultTitles(jsondata);
-  });
-}
-
-
-
-function ShowMovies(){
+// gets the movie title from the url
+function ShowMoviesOnSearchPage(){
   var searchString = document.location.search;
   searchString = searchString.substring(1);
   var nvPairs = searchString.split("&");
@@ -103,12 +99,21 @@ function ShowMovies(){
   return false;
 }
 
-function addResultTitles(jsondata){
+// gets the jsondata from the tmdb api
+function getResultsFromTMDB(value){
+  var url = "https://api.themoviedb.org/3/search/movie?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1&include_adult=false&query="+value;
+  $.getJSON(url, function(jsondata){
+    addMovieInfoToSearchPage(jsondata);
+  });
+}
+
+// adds the movie info to the search page
+function addMovieInfoToSearchPage(jsondata){
   var htmlstring = "";
   //console.log(jsondata);
   var counter = 0;
   //console.log(jsondata.total_results-1)
-  if(jsondata.results.length == 0){
+  if(jsondata.results.length == 0){// Check to see if jsondata.reults is empty
       htmlstring = "There is no movies with that title"
   }
   for(var i = 0; i < jsondata.results.length; i++){
@@ -146,8 +151,8 @@ function addResultTitles(jsondata){
   $("#searchResults").append(htmlstring);
 }
 
-
-function showMovieOnMoviePage(){
+// gets the movie title from the url
+function ShowMoviesOnMoviePage(){
   var searchString = document.location.search;
   searchString = searchString.substring(1);
   var nvPairs = searchString.split("&");
@@ -168,14 +173,16 @@ function showMovieOnMoviePage(){
   return false;
 }
 
+// gets the jsondata from the tmdb api
 function getResultsFromTMDB2(value){
   var url = "https://api.themoviedb.org/3/search/movie?api_key=95e3a26ca455cd0b5d455ae9fa52acad&language=en-US&page=1&include_adult=false&query="+value;
   $.getJSON(url, function(jsondata){
-    addResult(jsondata)
+    addMovieInfoToMoviePage(jsondata)
   });
 }
 
-function addResult(jsondata){
+// adds the movie info to the movie page
+function addMovieInfoToMoviePage(jsondata){
   var htmlstring = "";
   var title = jsondata.results[0].title;
   var poster = "http://image.tmdb.org/t/p/w92" + jsondata.results[0].poster_path;
@@ -214,6 +221,7 @@ window.onclick = function(event) {
       modal3.style.display = "none";
     }
 }
+
 
 function motd(){
   var motdArray = [" I did not hit her, it's not true! It's bullshit! I did not hit her! [throws water bottle]","Oh hi Mark!","Hi doggie!","You betrayed me! You're not good. You, you're just a chicken. Chip-chip-chip-chip-cheep-cheep."];

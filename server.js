@@ -21,8 +21,9 @@ var movieTitle = "";
 MongoClient.connect(url, function(err, database) {
     if (err) throw err;
     db = database;
-    console.log('listening on 8080');
+    //console.log('listening on 8080');
 });
+
 
 app.get('/', function(req, res) {
     if(req.session.loggedin){
@@ -38,8 +39,9 @@ app.get('/', function(req, res) {
     }
 });
 
+
 app.get('/SearchPage', function(req, res) {
-    console.log(req.body)
+    //console.log(req.body)
     if(req.session.loggedin){
         db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         //console.log("logged in");
@@ -53,16 +55,9 @@ app.get('/SearchPage', function(req, res) {
     }
 });
 
+
 app.get('/MoviePage', function(req, res) {
-    console.log(req.body)
-    // if(req.session.loggedin){
-    //     db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-    //     res.render('pages/MoviePageLoggedIn', {user: result});
-    //     })
-    // } else {
-    //     //console.log("logged out");
-    //     res.render('pages/MoviePage');
-    // }
+    //console.log(req.body)
 
     var output = "";
     //console.log(req.originalUrl);
@@ -87,7 +82,7 @@ app.get('/MoviePage', function(req, res) {
         var array = [results.length]
         if (err) throw err;
         if(results.length == 0){
-            console.log(results.length)
+            //console.log(results.length)
             output += "No reviews exist for this movie";
         } else {
             for(var i = 0; i < results.length; i++){
@@ -96,7 +91,7 @@ app.get('/MoviePage', function(req, res) {
                 var yes = "Created By:"+results[i].login.username
                 var no = "Review:"+results[i].MovieReview.review
                 array[i] = {Username: yes, Review: no}
-                console.log(array[i]);
+                //console.log(array[i]);
             }
         }
         //console.log("Does this actually work "+output);
@@ -133,11 +128,11 @@ app.post('/Login', function(req, res) {
             //console.log('Login')
             req.session.loggedin = true;
             res.redirect("/");
-            console.log("Username is in the system");
+            //console.log("Username is in the system");
             return;
         } else {
             //alert("Incorrect Password")
-            console.log("Username isn't in the system");
+            //console.log("Username isn't in the system");
             res.redirect("/");
             return;
         }
@@ -146,34 +141,30 @@ app.post('/Login', function(req, res) {
 
 app.post('/LogOut', function(req, res) {
     req.session.loggedin = false;
+    username = "";
+    password = "";
     req.session.destroy();
     res.redirect('/');
 })
 
 app.post('/SignUp', function(req, res) {
     var datatostore = {
-    //"gender":req.body.gender,
     "name":{"firstname":req.body.firstname,"surname":req.body.surname},
-    //"location":{"street":req.body.street,"city":req.body.city,"state":req.body.state,"postcode":req.body.postcode},
-    //"email":req.body.email,
     "login":{"username":req.body.username,"password":req.body.password},
-    //"dob":req.body.dob,"registered":Date(),
-    //"picture":{"large":req.body.large,"medium":req.body.medium,"thumbnail":req.body.thumbnail},
-    //"nat":req.body.nat
     }
 
     db.collection('UserInfo').find({"login.username":req.body.username}).toArray(function(err, result) {
         if (err) throw err;
         console.log(result)
         if(result.length == 0){
-            console.log("Why do this")
+            //console.log("Why do this")
             db.collection('UserInfo').save(datatostore, function(err, result) {
                 if (err) throw err;
                 //console.log('SignUp')
                 res.redirect("/")
             })
         } else {
-            console.log("username already exists")
+            //console.log("username already exists")
             res.redirect("/")
         }
     })
@@ -190,7 +181,7 @@ app.post('/testing', function(req, res) {
 app.post('/addMovie', function(req, res) {
 
     var datatostore;
-    console.log(req.body);
+    //console.log(req.body);
     if(!username){
         datatostore = {
         "login":{"username":"Guest"},
