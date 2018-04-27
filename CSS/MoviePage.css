@@ -9,8 +9,10 @@ main {
     max-height: inherit;
 }
 
-#searchResults {
+#movieDisplay {
   background-color:#5D4A66;
+  text-align:center;
+  margin:0 auto;
 }
 
 #moviepagediv {
