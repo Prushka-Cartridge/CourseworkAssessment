@@ -220,7 +220,7 @@ window.onclick = function(event) {
 
 $(document).ready(function()
 {
-    console.log(/Images/PosterPlaceholder.png)
+    console.log("/Images/PosterPlaceholder.png")
     $(".backup_picture").on("error", function(){
         $(this).attr('src', '/Images/PosterPlaceholder.png');
     });
