@@ -1,5 +1,6 @@
 # CourseworkAssessment
 
+npm init
 npm install mongodb@2.2.33
 npm install express
 npm install express-session

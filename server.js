@@ -86,8 +86,8 @@ app.get('/MoviePage', function(req, res) {
     db.collection('MovieInfo').find({"MovieInfo.title":movieTitle}).toArray(function(err, results) {
         var array = [results.length]
         if (err) throw err;
-        console.log(results)
         if(results.length == 0){
+            console.log(results.length)
             output += "No reviews exist for this movie";
         } else {
             for(var i = 0; i < results.length; i++){
@@ -103,11 +103,11 @@ app.get('/MoviePage', function(req, res) {
 
         if(req.session.loggedin){
             db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
-            res.render('pages/MoviePageLoggedIn', {user: result, array: array});
+                res.render('pages/MoviePageLoggedIn', {user: result, array: array, output});
             })
         } else {
             //console.log("logged out");
-            res.render('pages/MoviePage', {array: array});
+            res.render('pages/MoviePage', {array: array, output});
         }
         return;
     })
@@ -124,7 +124,7 @@ app.post('/Login', function(req, res) {
     db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         if (err) throw err;
 
-        if(result.length == 0){
+        if(!result){
             res.redirect('/');
             return
         }

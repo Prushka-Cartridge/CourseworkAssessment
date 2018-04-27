@@ -108,7 +108,9 @@ function addResultTitles(jsondata){
   //console.log(jsondata);
   var counter = 0;
   //console.log(jsondata.total_results-1)
-
+  if(jsondata.results.length == 0){
+      htmlstring = "There is no movies with that title"
+  }
   for(var i = 0; i < jsondata.results.length; i++){
     //console.log("i:"+i)
     if(jsondata.results[i].title == null){
