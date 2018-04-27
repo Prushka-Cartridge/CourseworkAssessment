@@ -72,6 +72,14 @@ input[type=text], input[type=password] {
   opacity:0.8;
 }
 
+#signoutbutton {
+  opacity:1;
+}
+
+#signoutbutton:hover {
+  opacity:0.8;
+}
+
 button {
     background-color: #6A5D7B;
     color: white;
