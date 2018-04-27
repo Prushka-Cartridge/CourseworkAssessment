@@ -13,7 +13,7 @@
   float: left;
   width: 100%;
   height: auto;
-  background-color: white;
+  /*background-color: white;*/
 }
 
 @import "compass/css3";
@@ -34,7 +34,8 @@
 }
 
 .flex-item {
-  background: tomato;
+  /*background: tomato; */
+  background-color:#124E78;
   padding: 5px;
   width: 200px;
   height: 200px;

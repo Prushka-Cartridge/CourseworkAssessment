@@ -10,14 +10,14 @@ body{
 
 header{
   /*background-color: #7D8491; */
-  background-color:yellow;
+  /*background-color:yellow; */
   height:30%;
 
   /*font-family: 'Pacifico', cursive !important */;
 }
 
 main{
-  background-color: red;
+  /*background-color: red;*/
   max-height: 60%;
   height:100%;
   max-width: 100%;
@@ -25,7 +25,7 @@ main{
 }
 
 footer{
-  background-color:white;
+  /*background-color:white;*/
   text-align: center;
 }
 
@@ -68,7 +68,7 @@ h3 {
 }
 
 .parent {
-  background-color: #914D76;
+  /*background-color: #914D76;*/
   display:flex;
   flex-flow:nowrap;
   justify-content:space-evenly;
@@ -77,7 +77,8 @@ h3 {
 
 .child {
   /*padding: 20px 20px 20px 20px; */
-  background-color:purple;
+  padding-top:10px;
+  /*background-color:purple;*/
   width:30%;
   height:80%;
 }
@@ -136,12 +137,14 @@ h3 {
 
 #leftbox {
   /*background-color:#C0C5C1; */
-  background-color:#611C35;
+  /*background-color:#611C35; */
+  background-color:#124E78;
 }
 
 
 #rightbox {
-  background-color:#861657;
+  /*background-color:#861657; */
+  background-color:#124E78;
 }
 
 #midbox {
