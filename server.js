@@ -165,16 +165,15 @@ app.post('/SignUp', function(req, res) {
         if (err) throw err;
 
         if(!result){
-
+            db.collection('UserInfo').save(datatostore, function(err, result) {
+                if (err) throw err;
+                //console.log('SignUp')
+                res.redirect("/")
+            })
         } else {
             res.redirect("/")
             return;
         }
-    })
-    db.collection('UserInfo').save(datatostore, function(err, result) {
-        if (err) throw err;
-        //console.log('SignUp')
-        res.redirect("/")
     })
 })
 
