@@ -1,7 +1,7 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 
 button, .imgcontainer, .modalcontent, input, label {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /*#menubar {
@@ -52,7 +52,7 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /* Set a style for all buttons */
