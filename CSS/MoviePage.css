@@ -9,3 +9,6 @@ main {
     max-height: inherit;
 }
 
+#MoviePageMain > #searchResults {
+  background-color:#5D4A66;
+}
