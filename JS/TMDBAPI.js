@@ -38,7 +38,7 @@ function Content(){
     });
   });
 
-  //motd();
+  motd();
 }
 
 // This adds the newest content info to the web page
