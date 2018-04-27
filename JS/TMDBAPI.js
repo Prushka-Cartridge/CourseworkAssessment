@@ -48,7 +48,7 @@ function addNewestContent(values){
   img.alt = "poster";
   img.onerror = this.src="/Images/PosterPlaceholder.png"
   var url = "/Images/PosterPlaceholder.png"
-  var temp1 = "<div class = flex-item> <div class = poster><img src = "+poster+" alt = src = /Images/PosterPlaceholder.png onerror=poster></div>"
+  var temp1 = "<div class = flex-item> <div class = poster><img class = backup_picture src = "+poster+" alt = poster></div>"
   var temp2 = "<div class = title> "+title+"</div></div>"
   var htmlstring = temp1 + temp2
   //console.log(htmlstring);
@@ -217,6 +217,13 @@ window.onclick = function(event) {
       modal3.style.display = "none";
     }
 }
+
+$(document).ready(function()
+{
+    $(".backup_picture").on("error", function(){
+        $(this).attr('src', '/Images/PosterPlaceholder.png');
+    });
+});
 
 function motd(){
   var motdArray = [" I did not hit her, it's not true! It's bullshit! I did not hit her! [throws water bottle]","Oh hi Mark!","Hi doggie!","You betrayed me! You're not good. You, you're just a chicken. Chip-chip-chip-chip-cheep-cheep."];
