@@ -46,7 +46,7 @@ function addNewestContent(values){
   var altImg = document.createElement("IMG")
   altImg.src = "/Images/PosterPlaceholder.png"
   altImg.alt = "poster"
-  var temp1 = "<div class = flex-item> <div class = poster> <img src="+poster+" alt=altImg ></div>"
+  var temp1 = "<div class = flex-item> <div class = poster> <img src="+poster+" alt="+altImg+" ></div>"
   var temp2 = "<div class = title> "+title+"</div></div>"
   var htmlstring = temp1 + temp2
   //console.log(htmlstring);
