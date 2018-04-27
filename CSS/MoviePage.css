@@ -4,9 +4,5 @@
 }
 
 main {
-    max-height: none;
-}
-
-#MoviePageMain{
-    background-size: auto;
+    height: auto;
 }
