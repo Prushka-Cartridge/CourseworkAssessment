@@ -164,12 +164,13 @@ app.post('/SignUp', function(req, res) {
 
     db.collection('UserInfo').find({"login.username":req.body.username}).toArray(function(err, result) {
         if (err) throw err;
-
+        console.log(result)
         if(!result){
             db.collection('UserInfo').save(datatostore, function(err, result) {
                 if (err) throw err;
                 //console.log('SignUp')
                 res.redirect("/")
+                return;
             })
         } else {
             console.log("username already exists")
