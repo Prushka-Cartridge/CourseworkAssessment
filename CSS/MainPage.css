@@ -77,13 +77,13 @@ h3 {
 
 .child {
   /*padding: 25px 5px 0px 5px; */
-  
+
   padding-top:25px;
   padding-left:15px;
 
   /*background-color:purple;*/
   width:30%;
-  height:80%;
+  height:50%;
 }
 
 /* end of container manipulation */

@@ -66,10 +66,11 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
+    opacity:0.8;
 }
 
 button:hover {
-    opacity: 0.8;
+    opacity: 1;
 }
 
 /* Extra styles for the cancel button */
