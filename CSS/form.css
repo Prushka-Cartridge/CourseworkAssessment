@@ -1,7 +1,7 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 
 button, .imgcontainer, .modalcontent, input, label {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 /*#menubar {
@@ -52,7 +52,7 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 /* Set a style for all buttons */
