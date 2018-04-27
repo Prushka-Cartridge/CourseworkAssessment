@@ -171,7 +171,6 @@ function getResultsFromTMDB2(value){
   $.getJSON(url, function(jsondata){
     addResult(jsondata)
   });
-  $('textarea').autoResize();
 }
 
 function addResult(jsondata){
