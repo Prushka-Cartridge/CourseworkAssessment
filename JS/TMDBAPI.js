@@ -43,7 +43,7 @@ function addNewestContent(values){
   console.log(values);
   var poster = "http://image.tmdb.org/t/p/w92" + values.poster_path;
   var title = values.title;
-  var temp1 = "<div class = flex-item> <div class = poster> <img src="+poster+" alt=poster></div>"
+  var temp1 = "<div class = flex-item> <div class = poster> <img src="+poster+" alt=poster onerror=this.src=/Images/PosterPlaceholder.png></div>"
   var temp2 = "<div class = title> "+title+"</div></div>"
   var htmlstring = temp1 + temp2
   //console.log(htmlstring);
