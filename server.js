@@ -124,7 +124,7 @@ app.post('/Login', function(req, res) {
     db.collection('UserInfo').findOne({"login.username":username}, function(err, result) {
         if (err) throw err;
 
-        if(!result){
+        if(result.length == 0){
             res.redirect('/');
             return
         }
