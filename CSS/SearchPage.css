@@ -12,7 +12,7 @@
 #searchResults{
   float: left;
   width: 100%;
-  height: auto;
+  height: auto + 10px;
   background-color: white;
 }
 
@@ -31,6 +31,7 @@
 
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
+  background-color:#F3E9DC;
 }
 
 .flex-item {
@@ -39,7 +40,7 @@
   padding: 5px;
   width: 200px;
   height: 200px;
-  margin-top: 10px;
+  margin-top: 5px;
 
   line-height: 25px;
   color: white;

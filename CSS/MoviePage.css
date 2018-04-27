@@ -9,3 +9,15 @@ main {
     max-height: inherit;
 }
 
+#searchResults {
+  background-color:#5D4A66;
+}
+
+#moviepagediv {
+
+}
+
+#moviepagetitle {
+  margin:0 auto;
+  text-align:center;
+}
