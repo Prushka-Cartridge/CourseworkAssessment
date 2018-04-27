@@ -44,10 +44,12 @@ h1 {
 }
 
 h2 {
+  font-family: 'Alegreya Sans SC', sans-serif;
   margin: 0 0 0 0;
-  padding: 0px 0px 0px 0px;
+  padding: 10px 0px 10px 0px;
   text-decoration:none;
   text-align:center;
+  color:white;
   /*overflow: hidden; */
   /*list-style-type: none; */
 }
