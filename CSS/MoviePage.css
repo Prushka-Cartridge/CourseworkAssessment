@@ -5,4 +5,5 @@
 
 main {
     height: auto;
+    max-height: inherit;
 }
