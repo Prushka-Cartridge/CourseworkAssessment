@@ -192,7 +192,7 @@ function addMovieInfoToMoviePage(jsondata){
   if(title == null){
 
   } else {
-    var imgString =  "<div class = image>" +  img + "</div>";
+    var imgString =  "<div class = image id = view>" +  img + "</div>";
     var titleString = "<div class = title><h2 name = title>" + title + "</h2></div>";
     var descriptionString = "<div class = description>" + description + "</div>";
     //var yearString = "<div class = year>Release Year:" + year + "</div></div>";
