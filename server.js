@@ -165,7 +165,7 @@ app.post('/SignUp', function(req, res) {
     db.collection('UserInfo').find({"login.username":req.body.username}).toArray(function(err, result) {
         if (err) throw err;
         console.log(result)
-        if(!result){
+        if(result.length == 0){
             console.log("Why do this")
             db.collection('UserInfo').save(datatostore, function(err, result) {
                 if (err) throw err;
