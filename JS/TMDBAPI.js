@@ -199,7 +199,7 @@ function addMovieInfoToMoviePage(jsondata){
     htmlstring = imgString + titleString + descriptionString;
     console.log(htmlstring);
     //htmlstring = "<div class = oneMovie> <div class = image>" +  img + "</div> <div class = title> Title:" + title + "  </div> <div class = year>Release Year:" + year + "</div></div>";
-    $("#moviePageMain").append(htmlstring);
+    $("#movieDisplay").append(htmlstring);
   }
 }
 
