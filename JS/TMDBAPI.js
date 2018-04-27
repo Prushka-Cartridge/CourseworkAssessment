@@ -47,8 +47,8 @@ function addNewestContent(values){
   img.src = poster;
   img.alt = "poster";
   img.onerror = this.src="/Images/PosterPlaceholder.png"
-
-  var temp1 = "<div class = flex-item> <div class = poster><img src = "+poster+" alt = "+this.src=+"/Images/PosterPlaceholder.png onerror=poster></div>"
+  var url = "/Images/PosterPlaceholder.png"
+  var temp1 = "<div class = flex-item> <div class = poster><img src = "+poster+" alt = "+this.src=url+" onerror=poster></div>"
   var temp2 = "<div class = title> "+title+"</div></div>"
   var htmlstring = temp1 + temp2
   //console.log(htmlstring);
