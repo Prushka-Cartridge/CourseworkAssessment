@@ -4,7 +4,7 @@
 }
 
 main {
-    height: auto;
+    max-height: none;
 }
 
 #MoviePageMain{
