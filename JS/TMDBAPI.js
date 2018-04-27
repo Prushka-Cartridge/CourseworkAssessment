@@ -225,7 +225,7 @@ window.onclick = function(event) {
 
 function motd(){
   var motdArray = [" I did not hit her, it's not true! It's bullshit! I did not hit her! [throws water bottle]","Oh hi Mark!","Hi doggie!","You betrayed me! You're not good. You, you're just a chicken. Chip-chip-chip-chip-cheep-cheep."];
-  var motdFooter = ["Stay a while and listen!","Did somebody say [Thunderfury, Blessed Blade of the Windseeker]?","You're pretty good","Stop! You violated the law!","You started this war! Plunged Skyrim into chaos and now the empire is going to put you down and restore the peace!","Watch those wrist rockets!","my name jeff","h","2001 Channing Tatum"];
+  var motdFooter = ["Stay a while and listen!","Did somebody say [Thunderfury, Blessed Blade of the Windseeker]?","You're pretty good","Stop! You violated the law!","Watch those wrist rockets!","2001 Channing Tatum"];
   document.getElementById("Title").innerHTML = motdArray[Math.floor((Math.random() * motdArray.length-1) + 1)];
   document.getElementById("tatum").innerHTML = "Copyright Not Reserved 2018 FOUL FLICKS | "+motdFooter[Math.floor((Math.random() * motdArray.length-1) + 1)];
   //document.getElementById("subheader").innerHTML = motdArray[Math.floor((Math.random() * motdArray.length-1) + 1)];
