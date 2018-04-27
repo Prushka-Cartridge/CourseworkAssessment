@@ -56,6 +56,30 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
+#loginbutton {
+  opacity:1
+}
+
+#signupbutton {
+  opacity:1;
+}
+
+#loginbutton:hover {
+  opacity:0.8;
+}
+
+#signupbutton:hover {
+  opacity:0.8;
+}
+
+#signoutbutton {
+  opacity:1;
+}
+
+#signoutbutton:hover {
+  opacity:0.8;
+}
+
 button {
     background-color: #6A5D7B;
     color: white;
@@ -66,10 +90,11 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
+    opacity:0.8;
 }
 
 button:hover {
-    opacity: 0.8;
+    opacity: 1;
 }
 
 /* Extra styles for the cancel button */
@@ -131,14 +156,15 @@ span.psw {
     position: absolute;
     right: 25px;
     top: 0;
-    color: #000;
+    /*color: #000; */
+    color: #5D4A66;
     font-size: 35px;
     font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: red;
+    color: #6A5D7B;
     cursor: pointer;
 }
 
