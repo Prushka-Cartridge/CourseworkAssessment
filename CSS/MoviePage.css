@@ -11,15 +11,5 @@ main {
 
 #movieDisplay {
   background-color:#5D4A66;
-  text-align:center;
-  margin:0 auto;
-}
-
-#moviepagediv {
-
-}
-
-#moviepagetitle {
-  margin:0 auto;
-  text-align:center;
+  margin:auto;
 }
