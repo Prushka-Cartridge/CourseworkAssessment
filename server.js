@@ -161,9 +161,10 @@ app.post('/SignUp', function(req, res) {
     //"picture":{"large":req.body.large,"medium":req.body.medium,"thumbnail":req.body.thumbnail},
     //"nat":req.body.nat
     }
+    console.log(req.body.username)
     db.collection('UserInfo').find({"login.username":req.body.username}).toArray(function(err, result) {
         if (err) throw err;
-
+        console.log(result)
         if(!result){
             db.collection('UserInfo').save(datatostore, function(err, result) {
                 if (err) throw err;
