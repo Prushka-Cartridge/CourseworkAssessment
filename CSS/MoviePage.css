@@ -1,5 +1,11 @@
+
 #moviereviewtextarea{
     height: 100px;
     width: 100%;
-    max-height: none;
 }
+
+main {
+    height: auto;
+    max-height: inherit;
+}
+
